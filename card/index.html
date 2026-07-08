@@ -152,6 +152,7 @@ body{
 .btn:active{transform:translateY(2px)}
 .btn svg{width:18px;height:18px;color:var(--brass-light);flex:none}
 .btn.full{grid-column:1 / -1}
+.btn .handle{text-transform:none;letter-spacing:0.01em;font-weight:400;opacity:0.92}
 
 .qrwrap{margin-top:22px}
 .qrcap{
@@ -234,6 +235,9 @@ body{
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>Instagram</a>
     <a class="btn" id="xBtn" href="https://x.com/DigiRuneStudios" target="_blank" rel="noopener">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    <button class="btn full" id="discordBtn" type="button">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.4a14 14 0 0 1 4.3 2.2 13.7 13.7 0 0 0-11.9 0A14 14 0 0 1 11.9 3.4L11.6 3A19.7 19.7 0 0 0 6.7 4.4C3.6 9 2.8 13.5 3.2 17.9a19.9 19.9 0 0 0 6 3l.5-.7a12.7 12.7 0 0 1-2-1c.2-.1.3-.2.5-.3a14.2 14.2 0 0 0 12 0c.2.1.3.2.5.3a12.7 12.7 0 0 1-2 1l.5.7a19.9 19.9 0 0 0 6-3c.5-5.1-.8-9.6-3.9-13.5zM9.3 15.3c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2zm5.4 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2z"/></svg>
+      Discord&nbsp;<span class="handle">shalogham</span></button>
     <button class="btn full" id="shareBtn">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>Share This Card</button>
   </div>
@@ -732,6 +736,8 @@ body{
     "URL:https://digirunestudios.com",
     "X-SOCIALPROFILE;TYPE=twitter:https://x.com/DigiRuneStudios",
     "X-SOCIALPROFILE;TYPE=Instagram:https://www.instagram.com/digirune/",
+    "X-SOCIALPROFILE;TYPE=Discord:shalogham",
+    "IMPP;X-SERVICE-TYPE=Discord:discord:shalogham",
     "PHOTO;VALUE=URI:https://digirunestudios.com/medallion.png",
     "NOTE:Your World in Their Pocket — official companion apps for indie tabletop & RPG publishers.",
     "REV:2026-07-08T00:00:00Z",
@@ -761,6 +767,13 @@ body{
     }
   });
 
+  var dcBtn=document.getElementById("discordBtn");
+  if(dcBtn){dcBtn.addEventListener("click",function(){
+    var h="shalogham";
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(h).then(function(){toast("Discord copied \u2014 add \u201C"+h+"\u201D in Discord");},function(){toast("My Discord: "+h);});
+    } else { toast("My Discord: "+h); }
+  });}
   document.getElementById("shareBtn").addEventListener("click",async function(){
     var data={title:"Will McCullough — DigiRune Studios",text:"Will McCullough, CEO & Founder of DigiRune Studios",url:CARD_URL};
     if(navigator.share){ try{ await navigator.share(data); }catch(e){} }
