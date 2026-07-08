@@ -734,12 +734,20 @@ body{
     toastT=setTimeout(function(){t.classList.remove("show");},2600);
   }
 
-  var IS_ANDROID=/Android/i.test(navigator.userAgent||"");
+  // Save to Contacts: iOS gets the vCard contact-sheet; everyone else gets Android's
+  // native Add-contact intent (handled by the OS regardless of reported identity),
+  // which falls back to the hosted vCard file on real desktops / non-Chromium.
+  var UA=navigator.userAgent||"";
+  var IS_IOS=/iPad|iPhone|iPod/.test(UA) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  var VCF_URL="https://digirunestudios.com/card/will-mccullough.vcf";
   var saveEl=document.getElementById("saveBtn");
   if(saveEl){
-    if(IS_ANDROID){
-      // Android: fire the native "Create contact" screen pre-filled (no file download)
-      var vcfUrl="https://digirunestudios.com/card/will-mccullough.vcf";
+    saveEl.setAttribute("href",VCF_URL);
+    saveEl.addEventListener("click",function(e){
+      if(IN_APP){ toast("If nothing opens, tap the menu, then Open in browser"); return; }
+      if(IS_IOS){ toast("Opening your contact card..."); return; }
+      e.preventDefault();
+      toast("Opening your contacts to add me...");
       var intentUrl="intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact"
         +";S.name="+encodeURIComponent("Will McCullough")
         +";S.company="+encodeURIComponent("DigiRune Studios")
@@ -747,14 +755,11 @@ body{
         +";S.phone="+encodeURIComponent("+18434418286")
         +";S.email="+encodeURIComponent("will@digirunestudios.com")
         +";S.notes="+encodeURIComponent("digirunestudios.com/card | Discord: shalogham | X: @DigiRuneStudios | Instagram: @digirune")
-        +";S.browser_fallback_url="+encodeURIComponent(vcfUrl)
+        +";S.browser_fallback_url="+encodeURIComponent(VCF_URL)
         +";end";
-      saveEl.setAttribute("href",intentUrl);
-    }
-    saveEl.addEventListener("click",function(){
-      if(IN_APP){ toast("If nothing opens, tap the menu, then Open in browser"); }
-      else if(IS_ANDROID){ toast("Opening your contacts to add me..."); }
-      else { toast("Opening your contact card..."); }
+      var t=setTimeout(function(){ window.location.href=VCF_URL; },1500);
+      window.addEventListener("blur",function(){ clearTimeout(t); },{once:true});
+      try{ window.location.href=intentUrl; }catch(err){ clearTimeout(t); window.location.href=VCF_URL; }
     });
   }
 
