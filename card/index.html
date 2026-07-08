@@ -737,9 +737,23 @@ body{
   var IS_ANDROID=/Android/i.test(navigator.userAgent||"");
   var saveEl=document.getElementById("saveBtn");
   if(saveEl){
+    if(IS_ANDROID){
+      // Android: fire the native "Create contact" screen pre-filled (no file download)
+      var vcfUrl="https://digirunestudios.com/card/will-mccullough.vcf";
+      var intentUrl="intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact"
+        +";S.name="+encodeURIComponent("Will McCullough")
+        +";S.company="+encodeURIComponent("DigiRune Studios")
+        +";S.job_title="+encodeURIComponent("CEO & Founder")
+        +";S.phone="+encodeURIComponent("+18434418286")
+        +";S.email="+encodeURIComponent("will@digirunestudios.com")
+        +";S.notes="+encodeURIComponent("digirunestudios.com/card | Discord: shalogham | X: @DigiRuneStudios | Instagram: @digirune")
+        +";S.browser_fallback_url="+encodeURIComponent(vcfUrl)
+        +";end";
+      saveEl.setAttribute("href",intentUrl);
+    }
     saveEl.addEventListener("click",function(){
       if(IN_APP){ toast("If nothing opens, tap the menu, then Open in browser"); }
-      else if(IS_ANDROID){ toast("Tap the contact file at the top of your screen, then Add to Contacts"); }
+      else if(IS_ANDROID){ toast("Opening your contacts to add me..."); }
       else { toast("Opening your contact card..."); }
     });
   }
