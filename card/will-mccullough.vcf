@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+N:McCullough;Will;;;
+FN:Will McCullough
+ORG:DigiRune Studios
+TITLE:CEO & Founder
+EMAIL;TYPE=INTERNET,WORK:will@digirunestudios.com
+TEL;TYPE=WORK,VOICE:+18434418286
+URL:https://digirunestudios.com
+X-SOCIALPROFILE;TYPE=twitter:https://x.com/DigiRuneStudios
+X-SOCIALPROFILE;TYPE=Instagram:https://www.instagram.com/digirune/
+X-SOCIALPROFILE;TYPE=Discord:https://discord.com/users/1498862345106227421
+IMPP;X-SERVICE-TYPE=Discord:discord:shalogham
+PHOTO;VALUE=URI:https://digirunestudios.com/medallion.png
+NOTE:Your World in Their Pocket - official companion apps for indie tabletop and RPG publishers.
+REV:2026-07-08T00:00:00Z
+END:VCARD
