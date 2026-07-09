@@ -2514,10 +2514,14 @@ body{
     card.style.transform="translate(-50%,-50%) scale(1)";
     var w=card.offsetWidth, h=card.offsetHeight;
     if(!w||!h) return;
-    var s=Math.min(1, (window.innerWidth-14)/w, (window.innerHeight-14)/h);
+    var vv=window.visualViewport;
+    var availW=(vv?vv.width:window.innerWidth)-8;
+    var availH=(vv?vv.height:window.innerHeight)-8;
+    var s=Math.min(1.6, availW/w, availH/h);   // grow to fill AND shrink to fit
     card.style.transform="translate(-50%,-50%) scale("+s+")";
   }
   ["resize","orientationchange"].forEach(function(e){ window.addEventListener(e,fit); });
+  if(window.visualViewport){ window.visualViewport.addEventListener("resize",fit); }
   window.addEventListener("load",fit);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fit); }
   fit();
