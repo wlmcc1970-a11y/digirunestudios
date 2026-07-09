@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DigiRune Gmail Theme — Preview</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#000;color:#eee}
+.stage{min-height:100vh;background:url('gmail-bg.png') center center / cover no-repeat;padding:0}
+.note{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9;background:rgba(20,12,6,.85);color:#E0A84E;font-size:12px;padding:7px 14px;border-radius:20px;border:1px solid rgba(224,168,78,.3)}
+.top{display:flex;align-items:center;gap:16px;padding:10px 20px}
+.logo{color:#f1f1f1;font-size:20px;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.search{flex:1;max-width:700px;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);border-radius:24px;height:44px;display:flex;align-items:center;padding:0 18px;color:#eee;font-size:14px}
+.wrap{display:flex;gap:14px;padding:6px 16px 24px}
+.side{width:230px;flex:none;color:#f0f0f0;padding:8px 4px}
+.compose{background:rgba(196,131,42,.92);color:#1c1008;font-weight:600;border-radius:16px;padding:14px 20px;display:inline-block;margin:6px 0 16px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.nav{padding:8px 14px;border-radius:0 16px 16px 0;font-size:14px;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.nav.act{background:rgba(224,168,78,.22)}
+.pane{flex:1;background:#fff;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.5);overflow:hidden;color:#222}
+.row{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid #eee;font-size:14px}
+.row b{width:170px;color:#111}
+.row .sub{color:#555;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.row .t{color:#888;font-size:12px}
+.dot{width:8px;height:8px;border-radius:50%;background:#C4832A;flex:none}
+</style></head><body>
+<div class="note">Preview: how your Gmail will look with the DigiRune backdrop — the white mail pane keeps text perfectly readable</div>
+<div class="stage">
+  <div class="top"><div class="logo">DigiRune Mail</div><div class="search">Search mail</div></div>
+  <div class="wrap">
+    <div class="side">
+      <div class="compose">✎ Compose</div>
+      <div class="nav act">Inbox</div>
+      <div class="nav">Starred</div>
+      <div class="nav">Snoozed</div>
+      <div class="nav">Sent</div>
+      <div class="nav">Drafts</div>
+      <div class="nav" style="margin-top:14px;opacity:.85">Labels</div>
+      <div class="nav">App Stores</div>
+      <div class="nav">Partners</div>
+      <div class="nav">Twisted</div>
+    </div>
+    <div class="pane">
+      <div class="row"><span class="dot"></span><b>Demented Games</b><span class="sub">Re: Twisted companion app — the roster looks incredible</span><span class="t">9:14 AM</span></div>
+      <div class="row"><span class="dot" style="background:#ccc"></span><b>Apple App Review</b><span class="sub">Your submission status has been updated</span><span class="t">8:02 AM</span></div>
+      <div class="row"><span class="dot" style="background:#ccc"></span><b>Indie Publisher</b><span class="sub">Loved your card — let's set up that call</span><span class="t">Yesterday</span></div>
+      <div class="row"><span class="dot" style="background:#ccc"></span><b>Google Play</b><span class="sub">Monthly performance summary is ready</span><span class="t">Yesterday</span></div>
+      <div class="row"><span class="dot" style="background:#ccc"></span><b>Beaufort Chamber</b><span class="sub">Networking mixer — Thursday evening</span><span class="t">Jul 6</span></div>
+      <div class="row"><span class="dot" style="background:#ccc"></span><b>DigiRune Studios</b><span class="sub">Your World in Their Pocket — brand kit v3</span><span class="t">Jul 5</span></div>
+    </div>
+  </div>
+</div></body></html>
