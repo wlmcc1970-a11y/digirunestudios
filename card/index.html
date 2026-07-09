@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Will McCullough — CEO &amp; Founder, DigiRune Studios</title>
 <meta name="description" content="Will McCullough, CEO &amp; Founder of DigiRune Studios — official companion apps for indie tabletop &amp; RPG publishers. Scan to save my contact, or get in touch.">
 <meta name="theme-color" content="#1C1008">
@@ -23,10 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Will · DigiRune">
 <style>
@@ -39,7 +36,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:2px solid var(--brass-light);outline-offset:3px;border-radius:8px}
-html,body{height:100%;overflow:hidden}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
 body{
   font-family:"IM Fell English",Georgia,serif;color:var(--parchment);position:relative;
   background:
@@ -2517,7 +2514,7 @@ body{
     var vv=window.visualViewport;
     var availW=(vv?vv.width:window.innerWidth)-8;
     var availH=(vv?vv.height:window.innerHeight)-8;
-    var s=Math.min(1.6, availW/w, availH/h);   // grow to fill AND shrink to fit
+    var s=Math.min(2.2, availW/w, availH/h);   // grow to fill AND shrink to fit
     card.style.transform="translate(-50%,-50%) scale("+s+")";
   }
   ["resize","orientationchange"].forEach(function(e){ window.addEventListener(e,fit); });
@@ -2527,6 +2524,6 @@ body{
   fit();
 })();
 </script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<script>window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();});if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}</script>
 </body>
 </html>
