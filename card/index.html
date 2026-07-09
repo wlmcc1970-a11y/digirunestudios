@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Will McCullough — CEO &amp; Founder, DigiRune Studios</title>
-<meta name="description" content="Will McCullough, CEO &amp; Founder of DigiRune Studios — official companion apps for indie tabletop &amp; RPG publishers. Save my contact, get in touch, or explore our work.">
+<meta name="description" content="Will McCullough, CEO &amp; Founder of DigiRune Studios — official companion apps for indie tabletop &amp; RPG publishers. Scan to save my contact, or get in touch.">
 <meta name="theme-color" content="#1C1008">
 <link rel="canonical" href="https://digirunestudios.com/card">
-
-<!-- Rich link preview (Open Graph) -->
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="DigiRune Studios">
 <meta property="og:title" content="Will McCullough — CEO &amp; Founder, DigiRune Studios">
-<meta property="og:description" content="Your World in Their Pocket. Official companion apps for indie tabletop &amp; RPG publishers. Tap to save my contact.">
+<meta property="og:description" content="Your World in Their Pocket. Official companion apps for indie tabletop &amp; RPG publishers. Scan to save my contact.">
 <meta property="og:url" content="https://digirunestudios.com/card">
 <meta property="og:image" content="https://digirunestudios.com/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -20,9 +18,8 @@
 <meta property="og:image:alt" content="DigiRune Studios — Your World in Their Pocket.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Will McCullough — CEO &amp; Founder, DigiRune Studios">
-<meta name="twitter:description" content="Your World in Their Pocket. Tap to save my contact.">
+<meta name="twitter:description" content="Your World in Their Pocket. Scan to save my contact.">
 <meta name="twitter:image" content="https://digirunestudios.com/og-image.png?v=2">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
@@ -38,24 +35,18 @@
   --copper:#A06028; --iron:#2A1A0A; --iron-dark:#1C1008; --iron-deeper:#110804;
   --parchment:#F4EAD4; --parchment-dim:#C8A870; --steam:#E8D4B0;
   --glass-bg:rgba(28,16,8,0.55); --glass-border:rgba(224,168,78,0.22);
-  --brass-glow:rgba(196,131,42,0.18); --hud-glow:rgba(224,168,78,0.45);
-  --shimmer:rgba(255,225,170,0.28); --shadow-deep:0 2px 4px rgba(0,0,0,0.55);
+  --hud-glow:rgba(224,168,78,0.45); --shadow-deep:0 2px 4px rgba(0,0,0,0.55);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:2px solid var(--brass-light);outline-offset:3px;border-radius:8px}
-html,body{min-height:100%}
+html,body{height:100%;overflow:hidden}
 body{
-  font-family:"IM Fell English",Georgia,serif;
-  color:var(--parchment);
+  font-family:"IM Fell English",Georgia,serif;color:var(--parchment);position:relative;
   background:
     radial-gradient(1200px 600px at 50% -10%, rgba(196,131,42,0.14), transparent 60%),
     radial-gradient(900px 500px at 50% 120%, rgba(160,96,40,0.12), transparent 60%),
     linear-gradient(160deg, #110804 0%, #1C1008 45%, #2A1A0A 100%);
-  min-height:100dvh; display:flex; align-items:center; justify-content:center;
-  padding:calc(env(safe-area-inset-top) + 22px) 18px calc(env(safe-area-inset-bottom) + 22px);
-  overflow-x:hidden;
 }
-/* faint rotating gears in the backdrop */
 .gearbg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .gearbg svg{position:absolute;opacity:0.05;color:var(--brass-light)}
 .gearbg .g1{top:-70px;left:-70px;width:260px;height:260px;animation:spin 90s linear infinite}
@@ -63,130 +54,80 @@ body{
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .card{
-  position:relative;z-index:1;width:100%;max-width:432px;
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transform-origin:center center;
+  z-index:1;width:360px;max-width:calc(100vw - 20px);
   background:linear-gradient(180deg, rgba(42,26,10,0.72), rgba(17,8,4,0.82));
-  border:1px solid var(--glass-border);
-  border-radius:22px;
+  border:1px solid var(--glass-border);border-radius:20px;
   box-shadow:0 22px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
-  padding:30px 24px 24px;
-  backdrop-filter:blur(6px);
-  text-align:center;
-  overflow:hidden;
+  padding:20px 22px 16px;backdrop-filter:blur(6px);text-align:center;overflow:hidden;
 }
-.card::before{ /* brass top hairline glow */
-  content:"";position:absolute;top:0;left:12%;right:12%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--hud-glow),transparent);
-}
+.card::before{content:"";position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--hud-glow),transparent)}
 .medallion{
-  width:92px;height:92px;margin:2px auto 14px;border-radius:50%;
+  width:66px;height:66px;margin:0 auto 7px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   background:radial-gradient(circle at 35% 30%, #2A1A0A, #110804);
   border:1px solid rgba(224,168,78,0.35);
-  box-shadow:0 0 0 6px rgba(196,131,42,0.08), 0 8px 20px rgba(0,0,0,0.5), inset 0 0 18px rgba(196,131,42,0.15);
+  box-shadow:0 0 0 5px rgba(196,131,42,0.08), 0 8px 20px rgba(0,0,0,0.5), inset 0 0 16px rgba(196,131,42,0.15);
   overflow:hidden;
 }
 .medallion img{width:100%;height:100%;object-fit:contain;display:block}
-.medallion .fallback{display:none;width:56px;height:56px;color:var(--brass-light)}
-.wordmark{
-  font-family:"Cinzel",serif;font-weight:700;letter-spacing:0.28em;
-  font-size:0.72rem;text-transform:uppercase;
-  color:var(--brass-light);margin-bottom:18px;padding-left:0.28em;
-}
+.medallion .fallback{display:none;width:40px;height:40px;color:var(--brass-light)}
+.wordmark{font-family:"Cinzel",serif;font-weight:700;letter-spacing:0.26em;font-size:0.62rem;text-transform:uppercase;color:var(--brass-light);margin-bottom:5px;padding-left:0.26em}
 .name{
-  font-family:"Cinzel",serif;font-weight:900;letter-spacing:0.04em;
-  font-size:1.72rem;line-height:1.1;color:var(--parchment);
+  font-family:"Cinzel",serif;font-weight:900;letter-spacing:0.03em;font-size:1.5rem;line-height:1.05;color:var(--parchment);
   text-shadow:var(--shadow-deep);
   background:linear-gradient(180deg,#FBF3DF,#E9CF9C 70%,var(--brass));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  position:relative;
 }
-.title{
-  font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.22em;
-  font-size:0.72rem;text-transform:uppercase;color:var(--brass);
-  margin-top:8px;
-}
-.tagline{
-  font-style:italic;color:var(--parchment-dim);font-size:0.98rem;
-  margin:14px auto 4px;max-width:20em;line-height:1.4;
-}
-.rule{height:1px;background:linear-gradient(90deg,transparent,var(--glass-border),transparent);margin:20px 0}
+.title{font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.2em;font-size:0.64rem;text-transform:uppercase;color:var(--brass);margin-top:5px}
+.tagline{font-style:italic;color:var(--parchment-dim);font-size:0.88rem;margin:7px auto 0;line-height:1.35}
 
-.cta{margin-top:22px}
-.cta-hint{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
-  font-size:0.62rem;color:var(--brass-light);margin-bottom:11px;
-}
-.cta-hint::before,.cta-hint::after{content:"";height:1px;width:24px}
-.cta-hint::before{background:linear-gradient(90deg,transparent,var(--brass))}
-.cta-hint::after{background:linear-gradient(90deg,var(--brass),transparent)}
-.primary{
-  position:relative;overflow:hidden;text-decoration:none;
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  width:100%;min-height:66px;border:none;cursor:pointer;
-  border-radius:16px;font-family:"Cinzel",serif;font-weight:900;
-  letter-spacing:0.11em;text-transform:uppercase;font-size:1.04rem;
-  color:#1C1008;
-  background:linear-gradient(180deg,#DE9D40,var(--brass) 52%,#8A5C1C);
-  box-shadow:0 10px 24px rgba(196,131,42,0.34), inset 0 1px 0 rgba(255,255,255,0.44);
-  transition:transform .12s ease, filter .12s ease;
-}
-.primary .usericon{width:25px;height:25px;flex:none}
-.primary .chev{display:inline-flex;animation:nudge 2.8s ease-in-out infinite}
-.primary .chev svg{width:18px;height:18px}
-.primary:hover{filter:brightness(1.05)}
-.primary:active{transform:translateY(2px)}
-@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+.qrhero{margin-top:13px}
+.qrcap{display:flex;align-items:center;justify-content:center;gap:9px;font-family:"Cinzel",serif;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;font-size:0.62rem;color:var(--brass-light);margin-bottom:9px}
+.qrcap::before,.qrcap::after{content:"";height:1px;width:20px}
+.qrcap::before{background:linear-gradient(90deg,transparent,var(--brass))}
+.qrcap::after{background:linear-gradient(90deg,var(--brass),transparent)}
+.qrframe{width:188px;margin:0 auto;padding:9px;border-radius:15px;background:rgba(244,234,212,0.04);border:1px solid var(--glass-border);box-shadow:0 0 20px rgba(224,168,78,0.13), inset 0 1px 0 rgba(255,255,255,0.05)}
+.qr{width:100%;aspect-ratio:1/1;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.4))}
+.qr svg{width:100%;height:100%;display:block}
+.qrsub{font-style:italic;color:var(--parchment-dim);font-size:0.72rem;margin-top:8px}
+.qrurl{font-family:"Cinzel",serif;letter-spacing:0.06em;font-size:0.7rem;color:var(--brass);margin-top:2px}
 
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--glass-border),transparent);margin:13px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .btn{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  min-height:48px;padding:0 12px;text-decoration:none;cursor:pointer;
-  border-radius:12px;border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 10px;
+  text-decoration:none;cursor:pointer;border-radius:12px;border:1px solid var(--glass-border);
   background:var(--glass-bg);color:var(--parchment);
-  font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.06em;
-  font-size:0.76rem;text-transform:uppercase;
+  font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.05em;font-size:0.72rem;text-transform:uppercase;
   transition:transform .12s ease, background .2s ease, border-color .2s ease;
 }
 .btn:hover{background:rgba(196,131,42,0.14);border-color:rgba(224,168,78,0.5)}
 .btn:active{transform:translateY(2px)}
-.btn svg{width:18px;height:18px;color:var(--brass-light);flex:none}
+.btn svg{width:17px;height:17px;color:var(--brass-light);flex:none}
 .btn.full{grid-column:1 / -1}
-.btn .handle{text-transform:none;letter-spacing:0.01em;font-weight:400;opacity:0.92}
-
-.qrwrap{margin-top:22px}
-.qrcap{
-  font-family:"Cinzel",serif;font-weight:500;letter-spacing:0.18em;
-  text-transform:uppercase;font-size:0.64rem;color:var(--parchment-dim);
-  margin-bottom:12px;
+.social-row{grid-column:1 / -1;display:flex;gap:9px}
+.sbtn{
+  flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;
+  border-radius:12px;border:1px solid var(--glass-border);background:var(--glass-bg);color:var(--parchment);
+  transition:transform .12s ease, background .2s ease, border-color .2s ease;
 }
-.qr{width:224px;height:224px;margin:0 auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45))}
-.qr svg{width:100%;height:100%;display:block}
+.sbtn:hover{background:rgba(196,131,42,0.14);border-color:rgba(224,168,78,0.5)}
+.sbtn:active{transform:translateY(2px)}
+.sbtn svg{width:20px;height:20px;color:var(--brass-light)}
 
-.foot{margin-top:22px;color:var(--parchment-dim);font-size:0.72rem;line-height:1.5;letter-spacing:0.02em}
-.foot .est{font-family:"Cinzel",serif;letter-spacing:0.14em;text-transform:uppercase;font-size:0.6rem;color:var(--parchment-dim)}
+.foot{margin-top:12px;color:var(--parchment-dim);font-size:0.64rem;line-height:1.5;letter-spacing:0.02em}
+.foot .est{font-family:"Cinzel",serif;letter-spacing:0.12em;text-transform:uppercase;font-size:0.55rem;color:var(--parchment-dim)}
 
-.wvhint{
-  display:none;align-items:flex-start;gap:9px;text-align:left;
-  margin:0 0 18px;padding:11px 13px;border-radius:11px;
-  background:rgba(196,131,42,0.12);border:1px solid var(--glass-border);
-  color:var(--steam);font-size:0.82rem;line-height:1.42;
-}
-.wvhint svg{width:18px;height:18px;color:var(--brass-light);flex:none;margin-top:1px}
-.wvhint b{color:var(--brass-light);font-weight:400;font-family:"Cinzel",serif;letter-spacing:0.03em}
-/* toast */
 .toast{
-  position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 26px);
-  transform:translate(-50%,140%);z-index:50;
-  background:linear-gradient(180deg,#2A1A0A,#1C1008);
-  border:1px solid var(--glass-border);color:var(--parchment);
-  padding:13px 20px;border-radius:12px;font-size:0.9rem;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);display:flex;align-items:center;gap:10px;
-  transition:transform .35s cubic-bezier(.2,.9,.25,1.1);max-width:88vw;
+  position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 22px);transform:translate(-50%,150%);z-index:50;
+  background:linear-gradient(180deg,#2A1A0A,#1C1008);border:1px solid var(--glass-border);color:var(--parchment);
+  padding:12px 18px;border-radius:12px;font-size:0.88rem;box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  display:flex;align-items:center;gap:9px;transition:transform .35s cubic-bezier(.2,.9,.25,1.1);max-width:88vw;
 }
 .toast.show{transform:translate(-50%,0)}
 .toast svg{width:18px;height:18px;color:var(--brass-light);flex:none}
-@media (prefers-reduced-motion:reduce){.gearbg svg{animation:none}.toast{transition:none}.primary{animation:none}.primary .chev{animation:none}}
+@media (prefers-reduced-motion:reduce){.gearbg svg{animation:none}.toast{transition:none}}
 </style>
 </head>
 <body>
@@ -206,45 +147,9 @@ body{
   <div class="title">CEO &amp; Founder</div>
   <p class="tagline">&ldquo;Your World in Their Pocket&rdquo;</p>
 
-  <div class="wvhint" id="wvHint">
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-    <span>You&rsquo;re viewing inside an app&rsquo;s built-in browser. To save my contact, tap the menu (&#8943;) and choose <b>Open in browser</b> first.</span>
-  </div>
-
-  <div class="cta">
-    <div class="cta-hint">Tap to add me to your contacts</div>
-    <a class="primary" id="saveBtn" href="will-mccullough.vcf">
-      <svg aria-hidden="true" class="usericon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-      Save to Contacts
-      <span class="chev" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-    </a>
-  </div>
-
-  <div class="rule"></div>
-
-  <div class="grid">
-    <a class="btn" href="mailto:will@digirunestudios.com">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Email</a>
-    <a class="btn" href="tel:+18434418286">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-    <a class="btn" href="https://digirunestudios.com" target="_blank" rel="noopener">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20"/></svg>Website</a>
-    <a class="btn" href="https://digirunestudios.com/#founder" target="_blank" rel="noopener">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>My Bio</a>
-    <a class="btn" id="igBtn" href="https://www.instagram.com/digirune/" target="_blank" rel="noopener">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>Instagram</a>
-    <a class="btn" id="xBtn" href="https://x.com/DigiRuneStudios" target="_blank" rel="noopener">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
-    <a class="btn full" id="discordBtn" href="https://discord.com/users/1498862345106227421" target="_blank" rel="noopener">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.4a14 14 0 0 1 4.3 2.2 13.7 13.7 0 0 0-11.9 0A14 14 0 0 1 11.9 3.4L11.6 3A19.7 19.7 0 0 0 6.7 4.4C3.6 9 2.8 13.5 3.2 17.9a19.9 19.9 0 0 0 6 3l.5-.7a12.7 12.7 0 0 1-2-1c.2-.1.3-.2.5-.3a14.2 14.2 0 0 0 12 0c.2.1.3.2.5.3a12.7 12.7 0 0 1-2 1l.5.7a19.9 19.9 0 0 0 6-3c.5-5.1-.8-9.6-3.9-13.5zM9.3 15.3c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2zm5.4 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2z"/></svg>
-      Discord&nbsp;<span class="handle">shalogham</span></a>
-    <button class="btn full" id="shareBtn">
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>Share This Card</button>
-  </div>
-
-  <div class="qrwrap">
-    <div class="qrcap">Scan to save my contact</div>
-    <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 770" shape-rendering="geometricPrecision" role="img" aria-label="Scannable contact card for Will McCullough">
+  <div class="qrhero">
+    <div class="qrcap">Scan to add me to your contacts</div>
+    <div class="qrframe"><div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 770" shape-rendering="geometricPrecision" role="img" aria-label="Scannable contact card for Will McCullough">
 <rect x="0" y="0" width="770" height="770" rx="22.0" fill="#F4EAD4"/>
 <rect x="8.0" y="8.0" width="754.0" height="754.0" rx="16.0" fill="none" stroke="#C4832A" stroke-opacity="0.35" stroke-width="2.5"/>
 <defs><linearGradient id="ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1A0A"/><stop offset="1" stop-color="#1C1008"/></linearGradient><linearGradient id="bronze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A5018"/><stop offset="1" stop-color="#5C3A10"/></linearGradient><radialGradient id="brass" cx="0.35" cy="0.3" r="0.9"><stop offset="0" stop-color="#E0A84E"/><stop offset="0.6" stop-color="#C4832A"/><stop offset="1" stop-color="#7A5018"/></radialGradient></defs>
@@ -2542,7 +2447,32 @@ body{
 <path d="M423.5,385.0L412.1,393.8L416.1,407.6L401.7,408.0L396.9,421.6L385.0,413.5L373.1,421.6L368.3,408.0L353.9,407.6L357.9,393.8L346.5,385.0L357.9,376.2L353.9,362.4L368.3,362.0L373.1,348.4L385.0,356.5L396.9,348.4L401.7,362.0L416.1,362.4L412.1,376.2Z" fill="url(#brass)" stroke="#7A5018" stroke-width="1.5" stroke-linejoin="round"/>
 <circle cx="385.0" cy="385.0" r="13.1" fill="#1C1008"/>
 <text x="385.0" y="392.6" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="20.9" fill="#E0A84E">D</text>
-</svg></div>
+</svg></div></div>
+    <div class="qrsub">Point any phone camera &mdash; no app, no download</div>
+    <div class="qrurl">digirunestudios.com/card</div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="grid">
+    <a class="btn" href="mailto:will@digirunestudios.com">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Email</a>
+    <a class="btn" href="tel:+18434418286">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+    <a class="btn" href="https://digirunestudios.com" target="_blank" rel="noopener">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20"/></svg>Website</a>
+    <a class="btn" href="https://digirunestudios.com/#founder" target="_blank" rel="noopener">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>My Bio</a>
+    <div class="social-row">
+      <a class="sbtn" href="https://www.instagram.com/digirune/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+      <a class="sbtn" href="https://x.com/DigiRuneStudios" target="_blank" rel="noopener" aria-label="X">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a class="sbtn" href="https://discord.com/users/1498862345106227421" target="_blank" rel="noopener" aria-label="Discord: shalogham">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.4a14 14 0 0 1 4.3 2.2 13.7 13.7 0 0 0-11.9 0A14 14 0 0 1 11.9 3.4L11.6 3A19.7 19.7 0 0 0 6.7 4.4C3.6 9 2.8 13.5 3.2 17.9a19.9 19.9 0 0 0 6 3l.5-.7a12.7 12.7 0 0 1-2-1c.2-.1.3-.2.5-.3a14.2 14.2 0 0 0 12 0c.2.1.3.2.5.3a12.7 12.7 0 0 1-2 1l.5.7a19.9 19.9 0 0 0 6-3c.5-5.1-.8-9.6-3.9-13.5zM9.3 15.3c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2zm5.4 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.7.9 1.7 2-.8 2-1.7 2z"/></svg></a>
+    </div>
+    <button class="btn full" id="shareBtn">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>Share This Card</button>
   </div>
 
   <div class="foot">
@@ -2553,16 +2483,13 @@ body{
 
 <div class="toast" id="toast" role="status" aria-live="polite">
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-  <span id="toastMsg">Contact saved</span>
+  <span id="toastMsg">Copied</span>
 </div>
 
 <script>
 (function(){
   "use strict";
-  var CARD_URL = "https://digirunestudios.com/card";
-
-  // ----- vCard (RFC 6350 / 3.0 for broad phone support) -----
-
+  var CARD_URL="https://digirunestudios.com/card";
   var toastT;
   function toast(msg){
     var t=document.getElementById("toast");
@@ -2571,38 +2498,29 @@ body{
     clearTimeout(toastT);
     toastT=setTimeout(function(){t.classList.remove("show");},2600);
   }
-
-  // Save to Contacts: iOS opens the contact sheet from the hosted vCard; Android/desktop
-  // download the .vcf. (Android security blocks web pages from opening the contacts editor
-  // directly, so the scannable vCard QR is the one-tap route in person.)
-  var UA=navigator.userAgent||"";
-  var IS_IOS=/iPad|iPhone|iPod/.test(UA) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
-  var IS_ANDROID=/Android/i.test(UA);
-  var saveEl=document.getElementById("saveBtn");
-  if(saveEl){
-    saveEl.addEventListener("click",function(){
-      if(IN_APP){ toast("If nothing opens, tap the menu, then Open in browser"); }
-      else if(IS_IOS){ toast("Opening your contact card..."); }
-      else if(IS_ANDROID){ toast("Downloaded \u2014 tap Open to add me to Contacts"); }
-      else { toast("Downloading my contact card..."); }
+  var shareEl=document.getElementById("shareBtn");
+  if(shareEl){
+    shareEl.addEventListener("click",async function(){
+      var data={title:"Will McCullough — DigiRune Studios",text:"Will McCullough, CEO & Founder of DigiRune Studios",url:CARD_URL};
+      if(navigator.share){ try{ await navigator.share(data); }catch(e){} }
+      else if(navigator.clipboard){ try{ await navigator.clipboard.writeText(CARD_URL); toast("Card link copied"); }catch(e){ toast(CARD_URL); } }
+      else { toast(CARD_URL); }
     });
   }
-
-  document.getElementById("shareBtn").addEventListener("click",async function(){
-    var data={title:"Will McCullough — DigiRune Studios",text:"Will McCullough, CEO & Founder of DigiRune Studios",url:CARD_URL};
-    if(navigator.share){ try{ await navigator.share(data); }catch(e){} }
-    else if(navigator.clipboard){ try{ await navigator.clipboard.writeText(CARD_URL); toast("Card link copied"); }catch(e){ toast(CARD_URL); } }
-    else { toast(CARD_URL); }
-  });
-
-  // Detect in-app (webview) browsers where file downloads can silently fail
-  function inAppBrowser(){
-    var ua=navigator.userAgent||"";
-    return /FBAN|FBAV|FB_IAB|Instagram|Line\/|Twitter|TikTok|musical_ly|Snapchat|LinkedInApp|Pinterest|; wv\)|GSA\//i.test(ua);
+  // Scale-to-fit: keep the whole card on one screen, never upscale past natural size.
+  var card=document.querySelector(".card");
+  function fit(){
+    if(!card) return;
+    card.style.transform="translate(-50%,-50%) scale(1)";
+    var w=card.offsetWidth, h=card.offsetHeight;
+    if(!w||!h) return;
+    var s=Math.min(1, (window.innerWidth-14)/w, (window.innerHeight-14)/h);
+    card.style.transform="translate(-50%,-50%) scale("+s+")";
   }
-  var IN_APP=inAppBrowser();
-  if(IN_APP){ var wv=document.getElementById("wvHint"); if(wv) wv.style.display="flex"; }
-
+  ["resize","orientationchange"].forEach(function(e){ window.addEventListener(e,fit); });
+  window.addEventListener("load",fit);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fit); }
+  fit();
 })();
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
