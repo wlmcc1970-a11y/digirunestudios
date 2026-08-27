@@ -82,7 +82,7 @@ section{position:relative}
 .sec{padding:clamp(64px,9vw,110px) 0}
 .sec-alt{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
 .eyebrow{font-family:var(--font-ui); font-weight:600; font-size:.76rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:inline-block}
-.sec-head{max-width:720px; margin-bottom:clamp(38px,5vw,58px)}
+.sec-head{max-width:720px; margin:0 auto clamp(38px,5vw,58px); text-align:center}
 .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
 .sec-head h2{font-size:clamp(1.9rem,4.4vw,2.85rem); font-weight:800; margin-bottom:.9rem}
 .sec-head p{font-size:1.06rem; color:var(--muted); margin:0}
@@ -170,10 +170,10 @@ a.badge:hover{border-color:var(--gold); background:rgba(224,168,78,.08); transfo
 .promise p{font-size:.9rem; color:var(--muted); margin:0}
 
 /* ---------- about ---------- */
-.about-grid{display:grid; grid-template-columns:1fr; gap:1.4rem; max-width:800px}
+.about-grid{display:grid; grid-template-columns:1fr; gap:1.4rem; max-width:800px; margin:0 auto}
 .about-lead{font-size:1.15rem; color:var(--ink); font-weight:500; line-height:1.55; margin-bottom:.4rem}
 .about-grid p{color:var(--muted)}
-.chips{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.6rem}
+.chips{display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-top:.6rem}
 .chip{font-size:.78rem; font-weight:600; letter-spacing:.03em; color:var(--gold-2); background:rgba(224,168,78,.08); border:1px solid var(--line-2); border-radius:999px; padding:.4rem .9rem}
 
 /* ---------- faq ---------- */
@@ -487,11 +487,13 @@ footer{background:var(--bg-3); border-top:1px solid var(--line); padding:2.6rem 
 <!-- CONTACT -->
 <section class="sec" id="contact">
   <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Let's Build Something Together</h2>
+    </div>
     <div class="contact-grid">
       <div class="reveal">
-        <span class="eyebrow">Get in Touch</span>
-        <h2 style="font-size:clamp(1.8rem,4.2vw,2.6rem);font-weight:800;">Let's Build Something Together</h2>
-        <p style="margin-top:1rem;max-width:460px;">Send your game name and we'll set up a 20-minute call. We'll walk you through a live app, talk through what your companion app would look like, and if it's the right fit, we get to work — most publishers have an app ready for review within five to six weeks.</p>
+        <p style="margin-top:0;max-width:460px;">Send your game name and we'll set up a 20-minute call. We'll walk you through a live app, talk through what your companion app would look like, and if it's the right fit, we get to work — most publishers have an app ready for review within five to six weeks.</p>
         <div class="contact-lines">
           <span class="lbl">Email</span>
           <a href="mailto:will@digirunestudios.com">will@digirunestudios.com</a>
