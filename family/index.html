@@ -127,6 +127,10 @@
     border:1px solid var(--line-2); font-size:11px; font-weight:600; letter-spacing:.02em; padding:6px 10px; border-radius:8px;
     pointer-events:none; backdrop-filter:blur(4px); opacity:0; transform:translateY(4px); transition:.2s}
   .thumb:hover .expand,.card:hover .expand{opacity:1; transform:translateY(0)}
+  .fmt-badge{position:absolute; left:11px; top:11px; z-index:2; background:rgba(10,7,5,.74); color:var(--gold-2);
+    border:1px solid var(--line-2); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:7px; backdrop-filter:blur(4px); pointer-events:none}
+  .thumb.wide{background:#0A0705}
   .card-body{padding:18px 18px 18px; display:flex; flex-direction:column; gap:11px; flex:1}
   .headline{font-family:var(--font-display); font-weight:700; font-size:16.5px; line-height:1.3; color:var(--ink)}
   .caption{color:var(--muted); font-size:13.5px; line-height:1.58}
@@ -321,11 +325,20 @@ DATA.apps.forEach(app=>{
   const cards = app.posts.map(p=>{
     const ig = IMG+p.cid+'_ig.png';
     const x  = IMG+p.cid+'_x.png';
+    const nIg = esc(p.name)+' - Instagram';
+    const nX  = esc(p.name)+' - X';
+    const dset = `data-ig="${ig}" data-igname="${nIg}" data-x="${x}" data-xname="${nX}"`;
     const full = encodeURIComponent(p.caption+'\n\n'+p.tags);
     return `
     <div class="card reveal">
-      <div class="thumb" data-full="${ig}" data-name="${esc(p.name)} - Instagram" data-x="${x}" data-xname="${esc(p.name)} - X" role="button" tabindex="0" aria-label="Enlarge ${esc(p.name)}">
-        <img src="${ig}" alt="${esc(p.name)} social post" loading="lazy">
+      <div class="thumb" data-full="${ig}" data-name="${nIg}" ${dset} role="button" tabindex="0" aria-label="Enlarge ${esc(p.name)} Instagram version">
+        <span class="fmt-badge">Instagram · tall</span>
+        <img src="${ig}" alt="${esc(p.name)} — Instagram post" loading="lazy">
+        <span class="expand">Tap to enlarge</span>
+      </div>
+      <div class="thumb wide" data-full="${x}" data-name="${nX}" ${dset} role="button" tabindex="0" aria-label="Enlarge ${esc(p.name)} X version">
+        <span class="fmt-badge">X · wide</span>
+        <img src="${x}" alt="${esc(p.name)} — X post" loading="lazy">
         <span class="expand">Tap to enlarge</span>
       </div>
       <div class="card-body">
@@ -361,9 +374,9 @@ root.addEventListener('click', e=>{
 // lightbox
 const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbActions=document.getElementById('lbActions');
 function openLb(t){
-  lbImg.src=t.dataset.full; lbImg.alt=t.dataset.name;
+  lbImg.src=t.dataset.full; lbImg.alt=t.dataset.name||'';
   lbActions.innerHTML =
-    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.full}" download="${t.dataset.name}.png">${svgDl}Download Instagram</a>`+
+    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.ig}" download="${t.dataset.igname}.png">${svgDl}Download Instagram</a>`+
     `<a class="btn" style="flex:0 1 auto" href="${t.dataset.x}" download="${t.dataset.xname}.png">${svgDl}Download X</a>`;
   lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
 }
