@@ -142,6 +142,7 @@
     transition:border-color .16s, color .16s, background .16s, transform .12s}
   .btn:hover,.btn:focus-visible{border-color:var(--line-2); color:var(--ink)}
   .btn:active{transform:scale(.97)}
+  .btn.wide-btn{flex-basis:100%}
   .btn.primary{flex-basis:100%; background:var(--grad-gold); color:#241305; border:none; font-weight:700; letter-spacing:.01em}
   .btn.primary:hover{filter:brightness(1.06); color:#241305}
   .btn svg{width:15px; height:15px}
@@ -332,12 +333,12 @@ DATA.apps.forEach(app=>{
     return `
     <div class="card reveal">
       <div class="thumb" data-full="${ig}" data-name="${nIg}" ${dset} role="button" tabindex="0" aria-label="Enlarge ${esc(p.name)} Instagram version">
-        <span class="fmt-badge">Instagram · tall</span>
+        <span class="fmt-badge">Instagram / Facebook</span>
         <img src="${ig}" alt="${esc(p.name)} — Instagram post" loading="lazy">
         <span class="expand">Tap to enlarge</span>
       </div>
       <div class="thumb wide" data-full="${x}" data-name="${nX}" ${dset} role="button" tabindex="0" aria-label="Enlarge ${esc(p.name)} X version">
-        <span class="fmt-badge">X · wide</span>
+        <span class="fmt-badge">X / Twitter</span>
         <img src="${x}" alt="${esc(p.name)} — X post" loading="lazy">
         <span class="expand">Tap to enlarge</span>
       </div>
@@ -346,8 +347,8 @@ DATA.apps.forEach(app=>{
         <div class="caption">${esc(p.caption)}</div>
         <div class="tags">${esc(p.tags)}</div>
         <div class="btns">
-          <a class="btn" href="${ig}" download="${esc(p.name)} - Instagram.png">${svgDl}Instagram</a>
-          <a class="btn" href="${x}" download="${esc(p.name)} - X.png">${svgDl}X</a>
+          <a class="btn wide-btn" href="${ig}" download="${esc(p.name)} - Instagram.png">${svgDl}Download for Instagram / Facebook</a>
+          <a class="btn wide-btn" href="${x}" download="${esc(p.name)} - X.png">${svgDl}Download for X / Twitter</a>
           <button class="btn primary" data-copy="${full}">${svgCopy}Copy caption + tags</button>
         </div>
       </div>
@@ -376,8 +377,8 @@ const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbI
 function openLb(t){
   lbImg.src=t.dataset.full; lbImg.alt=t.dataset.name||'';
   lbActions.innerHTML =
-    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.ig}" download="${t.dataset.igname}.png">${svgDl}Download Instagram</a>`+
-    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.x}" download="${t.dataset.xname}.png">${svgDl}Download X</a>`;
+    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.ig}" download="${t.dataset.igname}.png">${svgDl}Download for Instagram / Facebook</a>`+
+    `<a class="btn" style="flex:0 1 auto" href="${t.dataset.x}" download="${t.dataset.xname}.png">${svgDl}Download for X / Twitter</a>`;
   lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
 }
 root.addEventListener('click', e=>{ const t=e.target.closest('.thumb'); if(t) openLb(t); });
