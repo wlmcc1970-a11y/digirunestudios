@@ -151,7 +151,7 @@ section{position:relative}
 .hero-cta{display:flex; gap:.9rem; flex-wrap:wrap}
 .hero-art{position:relative; justify-self:center; width:min(100%,460px); aspect-ratio:1; display:grid; place-items:center}
 .hero-art .ring{position:absolute; inset:0; width:100%; height:100%; opacity:.55; filter:drop-shadow(0 0 12px rgba(224,168,78,.18))}
-.hero-art .ring.slow{inset:-7%; width:114%; height:114%; opacity:.16}
+.hero-art .ring.slow{display:none} /* outer echo ring removed 2026-09-29: read as an off-centre shadow */
 .hero-art .seal{position:relative; width:68%; aspect-ratio:1; border-radius:50%; filter:drop-shadow(0 24px 40px rgba(0,0,0,.65)) drop-shadow(0 0 30px rgba(224,168,78,.22))}
 .hero-art .seal img{width:100%; height:100%}
 .hero-art .seal::after{content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
