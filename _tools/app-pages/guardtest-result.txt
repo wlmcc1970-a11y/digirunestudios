@@ -1,0 +1,25 @@
+PASS mercs       plain phone browser                redirected   
+PASS mercs       plain browser + deep link ?x=1     redirected   
+PASS mercs       iOS store app (PWAShell)           stayed in app latch=true  
+PASS mercs       Android store app (referrer)       stayed in app latch=true ref=android-app://com.digirunestudios.mercs/ 
+PASS mercs       installed app (standalone)         stayed in app   
+PASS mercs       launch marker ?app=android         stayed in app   
+PASS mercs       privacy page, plain browser        stayed in app   
+PASS mercs       Safari translate hand-off URL      stayed in app   
+PASS mercs       older MERCSApp shell label         stayed in app   
+PASS mercs       plain iPhone Safari                redirected   
+PASS mercs       opened hand-off URL in Safari      stayed in app   
+      mercs       hand-off URL was https://mercs.digirunestudios.com/?app=translate#home 
+PASS twisted     plain phone browser                redirected   
+PASS twisted     plain browser + deep link ?x=1     redirected   
+PASS twisted     iOS store app (PWAShell)           stayed in app latch=true  
+PASS twisted     Android store app (referrer)       stayed in app latch=true ref=android-app://com.digirunestudios.twisted/ 
+PASS twisted     installed app (standalone)         stayed in app   
+PASS twisted     launch marker ?app=android         stayed in app   
+PASS twisted     privacy page, plain browser        stayed in app   
+PASS twisted     Safari translate hand-off URL      stayed in app   
+PASS twisted     older MERCSApp shell label         stayed in app   
+PASS twisted     plain iPhone Safari                redirected   
+PASS twisted     opened hand-off URL in Safari      stayed in app   
+      twisted     hand-off URL was https://twisted.digirunestudios.com/?app=translate 
+ALL PASS
