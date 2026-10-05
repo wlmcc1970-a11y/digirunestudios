@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Twisted Companion App: the Official Companion for Twisted, A Steampunk Skirmish Game</title>
-<meta name="description" content="The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Build your Company, all 66 characters, 72 virtual cards, the full 10-mission campaign and every rule, offline.">
+<meta name="description" content="The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Company Builder, all 66 characters, 72 virtual cards, the full 10-mission campaign and 12 searchable rule sections, offline.">
 <meta name="theme-color" content="#0F0B07">
 <link rel="icon" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="DigiRune Studios">
 <meta property="og:url" content="https://digirunestudios.com/twisted/">
 <meta property="og:title" content="Twisted Companion App: the Official Companion for Twisted, A Steampunk Skirmish Game">
-<meta property="og:description" content="The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Build your Company, all 66 characters, 72 virtual cards, the full 10-mission campaign and every rule, offline.">
-<meta property="og:image" content="https://digirunestudios.com/assets/apps/twisted-feature.webp">
+<meta property="og:description" content="The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Company Builder, all 66 characters, 72 virtual cards, the full 10-mission campaign and 12 searchable rule sections, offline.">
+<meta property="og:image" content="https://digirunestudios.com/assets/apps/twisted-feature.jpg">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="500">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="apple-itunes-app" content="app-id=6782623059">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Twisted Companion App", "operatingSystem": "iOS, Android", "applicationCategory": "GameApplication", "description": "The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Build your Company, all 66 characters, 72 virtual cards, the full 10-mission campaign and every rule, offline.", "url": "https://digirunestudios.com/twisted/", "image": "https://digirunestudios.com/assets/apps/twisted-feature.webp", "author": {"@type": "Organization", "name": "DigiRune Studios", "url": "https://digirunestudios.com/"}, "sameAs": ["https://apps.apple.com/app/twisted-companion-app/id6782623059", "https://play.google.com/store/apps/details?id=com.digirunestudios.twisted"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Twisted Companion App", "operatingSystem": "iOS, Android", "applicationCategory": "GameApplication", "description": "The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Company Builder, all 66 characters, 72 virtual cards, the full 10-mission campaign and 12 searchable rule sections, offline.", "url": "https://digirunestudios.com/twisted/", "image": "https://digirunestudios.com/assets/apps/twisted-feature.jpg", "author": {"@type": "Organization", "name": "DigiRune Studios", "url": "https://digirunestudios.com/"}, "sameAs": ["https://apps.apple.com/app/twisted-companion-app/id6782623059", "https://play.google.com/store/apps/details?id=com.digirunestudios.twisted"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -375,7 +375,7 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
 .ap-id{display:flex; align-items:center; gap:1rem; margin-bottom:1.1rem}
 .ap-id .eyebrow{margin:0}
 .ap-icon{width:72px; height:72px; border-radius:18px; border:1px solid var(--line-hi); box-shadow:0 14px 30px -10px rgba(0,0,0,.85),0 0 0 4px rgba(15,11,7,.8)}
-.ap-hero h1{font-size:clamp(2.5rem,6.2vw,4.3rem); font-weight:800; letter-spacing:.01em; margin-bottom:.9rem; text-wrap:balance}
+.ap-hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem); font-weight:800; letter-spacing:.01em; margin-bottom:.9rem; text-wrap:balance}
 .tagline{font-family:var(--font-display); font-weight:700; font-size:clamp(1.12rem,2vw,1.36rem); color:var(--accent-2); margin:0 0 1rem; text-wrap:balance}
 .ap-lede{font-size:1.04rem; color:var(--muted); margin:0 0 1.6rem; max-width:560px; text-wrap:pretty}
 .ap-hero .badges{max-width:420px}
@@ -429,6 +429,10 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
 .get .credit{font-size:.8rem; color:var(--muted-2); max-width:520px; margin:0 0 1.4rem; text-wrap:balance}
 
 .tagline .nw{white-space:nowrap}
+.ap-hero h1{text-wrap:balance}
+.two-col{align-items:start}
+.demo-copy p{text-wrap:balance}
+.ap-hero h1 .nw{white-space:nowrap}
 </style>
 </head>
 <body class="app-page">
@@ -448,7 +452,7 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
   <div class="wrap ap-grid">
     <div class="ap-copy">
       <div class="ap-id"><img class="ap-icon" src="../assets/icon-twisted.webp" width="72" height="72" alt="Twisted Companion App app icon"><span class="eyebrow">Official Companion App</span></div>
-      <h1>Twisted<br>Companion App</h1>
+      <h1>Twisted<br><span class="nw">Companion App</span></h1>
       <p class="tagline"><span class="nw">The whole world of Twisted,</span> <span class="nw">in your pocket.</span></p>
       <p class="ap-lede">The official companion app for Twisted: A Steampunk Skirmish Game by Demented Games. Build your Company, check the rules, look up any character, track the fight and dig into the lore, all from your phone at the table or on the go.</p>
       <div class="badges"><a class="badge" data-goatcounter-click="store-twisted-apple-hero" data-goatcounter-title="Twisted Companion App: App Store (hero)" href="https://apps.apple.com/app/twisted-companion-app/id6782623059" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.8-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.72-.69 3.56-1.7"/></svg></span><span><small>Download on the</small><strong>App Store</strong></span></a><a class="badge" data-goatcounter-click="store-twisted-google-hero" data-goatcounter-title="Twisted Companion App: Google Play (hero)" href="https://play.google.com/store/apps/details?id=com.digirunestudios.twisted" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.02 13.3l-3.92 2.22-3.52-3.5 3.55-3.52 3.89 2.2a1.49 1.49 0 0 1 0 2.6zM1.34.92a1.49 1.49 0 0 0-.11.57v21.02c0 .22.04.42.12.6l11.16-11.09L1.34.92zm12.2 10.07l3.26-3.24L3.45.2a1.47 1.47 0 0 0-.95-.18l11.04 10.97zm0 2.07l-11 10.93c.3.04.61-.02.9-.18l13.33-7.54-3.23-3.21z"/></svg></span><span><small>Get it on</small><strong>Google Play</strong></span></a></div>
@@ -468,25 +472,25 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
 <figure class="shot"><img src="../assets/apps/twisted-shot-3.webp" width="640" height="1138" alt="Every character, every stat" loading="lazy" decoding="async"></figure>
 <figure class="shot"><img src="../assets/apps/twisted-shot-4.webp" width="640" height="1138" alt="Master the Alchemancy" loading="lazy" decoding="async"></figure>
 <figure class="shot"><img src="../assets/apps/twisted-shot-5.webp" width="640" height="1138" alt="Build your Company" loading="lazy" decoding="async"></figure>
-<figure class="shot"><img src="../assets/apps/twisted-shot-6.webp" width="640" height="1138" alt="Generate any mission" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/twisted-shot-6.webp" width="640" height="1138" alt="Mission setup at your fingertips" loading="lazy" decoding="async"></figure>
 <figure class="shot"><img src="../assets/apps/twisted-shot-7.webp" width="640" height="1138" alt="Track your campaign" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
 <section class="sec sec-tight" id="demo">
   <div class="wrap demo-grid">
-    <div class="demo-copy"><span class="eyebrow">Watch the demo</span><h2>See it in action</h2><p>A quick tour of the real app, in under 20 seconds.</p></div>
+    <div class="demo-copy"><span class="eyebrow">Watch the demo</span><h2>See it in action</h2><p>A quick tour of the real app, in&nbsp;under&nbsp;20&nbsp;seconds.</p></div>
     <div class="demo-frame"><video controls playsinline preload="none" poster="../twisted-demo-poster.jpg" src="../twisted-demo.mp4" aria-label="Twisted Companion App demo video"></video></div>
   </div>
 </section>
 
 <section class="sec" id="inside">
   <div class="wrap">
-    <div class="sec-head center"><span class="eyebrow">Twisted: A Steampunk Skirmish Game</span><h2>What&#x27;s inside</h2></div>
+    <div class="sec-head center"><span class="eyebrow">Twisted</span><h2>What&#x27;s inside</h2></div>
     <div class="feat-grid">
-<article class="feat"><h3>Company Builder</h3><p>Assemble and manage your Company with live points and budget tracking. Keep up to three Companies saved and switch in a tap.</p></article>
-<article class="feat"><h3>66 Characters</h3><p>The full roster, with stats, weapons, abilities and lore for every fighter across the Dickensians, the Scions of the Sands, the Guild of Harmony and the Servants of The Engine.</p></article>
-<article class="feat"><h3>182 Abilities and 40 Alchemancy Invocations</h3><p>Tap-to-look-up cross-referencing across the entire roster, so you never stop to flip through a book mid-game.</p></article>
+<article class="feat"><h3>Company Builder</h3><p>Assemble and manage your Company with live points and budget tracking. Keep up to three separate Companies saved and switch between them in a tap.</p></article>
+<article class="feat"><h3>66 Characters</h3><p>The full roster, with stats, weapons, abilities and background lore for every fighter across the Dickensians, the Scions of the Sands, the Guild of Harmony and the Servants of The Engine.</p></article>
+<article class="feat"><h3>182 Abilities and 40 Alchemancy Invocations</h3><p>Tap-to-look-up cross-referencing across the entire roster, so you never have to stop and flip through a book mid-game.</p></article>
 <article class="feat"><h3>72 Virtual Cards</h3><p>Three complete decks: Eye of The Engine (34 cards), Canopic Jars (20) and the Tarot of Taxing Tasks (18). Draw, shuffle and track in the app.</p></article>
 <article class="feat"><h3>80 Delights</h3><p>Search, reference and add Delights to your Company, with budget tracking as you build.</p></article>
 <article class="feat"><h3>Missions and Campaign</h3><p>Mission setup references plus the full 10-mission narrative campaign, with VP tracking across all four acts.</p></article>
