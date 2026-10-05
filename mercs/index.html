@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MERCS Companion: the Official MERCS 2.5 Field Companion App</title>
+<meta name="description" content="The official companion app for MERCS 2.5. All 12 MegaCons, 123 units, every Contingency card, all ten Operations and the full core rules, offline. No ads. No subscription. Pay once.">
+<meta name="theme-color" content="#0F0B07">
+<link rel="icon" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="canonical" href="https://digirunestudios.com/mercs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigiRune Studios">
+<meta property="og:url" content="https://digirunestudios.com/mercs/">
+<meta property="og:title" content="MERCS Companion: the Official MERCS 2.5 Field Companion App">
+<meta property="og:description" content="The official companion app for MERCS 2.5. All 12 MegaCons, 123 units, every Contingency card, all ten Operations and the full core rules, offline. No ads. No subscription. Pay once.">
+<meta property="og:image" content="https://digirunestudios.com/assets/apps/mercs-feature.webp">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6794927606">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MERCS Companion", "operatingSystem": "iOS, Android", "applicationCategory": "GameApplication", "description": "The official companion app for MERCS 2.5. All 12 MegaCons, 123 units, every Contingency card, all ten Operations and the full core rules, offline. No ads. No subscription. Pay once.", "url": "https://digirunestudios.com/mercs/", "image": "https://digirunestudios.com/assets/apps/mercs-feature.webp", "author": {"@type": "Organization", "name": "DigiRune Studios", "url": "https://digirunestudios.com/"}, "sameAs": ["https://apps.apple.com/app/mercs-companion-wargame-rules/id6794927606", "https://play.google.com/store/apps/details?id=com.digirunestudios.mercs"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0B07; --bg-2:#140E09; --bg-3:#110C08;
+  --surface:#1C140D; --surface-2:#241A11; --surface-hi:#2C2015;
+  --line:rgba(224,168,78,.16); --line-2:rgba(224,168,78,.30); --line-hi:rgba(239,200,119,.55);
+  --gold:#E0A84E; --gold-2:#EFC877; --gold-deep:#C4832A; --gold-dim:#9A7636;
+  --ink:#F6EFDE; --muted:#CDBFA6; --muted-2:#A6977E; --faint:#9A8D76;
+  --green:#4FC79A; --amber:#E0A84E;
+  --grad-gold:linear-gradient(135deg,#F3D48C 0%,#E0A84E 45%,#C4832A 100%);
+  --grad-brass:linear-gradient(180deg,rgba(255,226,166,.10),rgba(255,226,166,0) 38%);
+  --edge:linear-gradient(160deg,rgba(239,200,119,.55),rgba(224,168,78,.14) 30%,rgba(224,168,78,.10) 70%,rgba(196,131,42,.38));
+  --shadow:0 18px 50px -18px rgba(0,0,0,.7);
+  --shadow-card:0 1px 0 rgba(255,236,200,.06) inset,0 2px 4px rgba(0,0,0,.35),0 18px 40px -18px rgba(0,0,0,.75);
+  --shadow-lift:0 1px 0 rgba(255,236,200,.08) inset,0 4px 10px rgba(0,0,0,.35),0 30px 60px -24px rgba(0,0,0,.85),0 0 0 1px rgba(239,200,119,.10);
+  --radius:18px; --radius-sm:13px;
+  --maxw:1160px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --font-display:'Cinzel',Georgia,'Times New Roman',serif;
+  --font-ui:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; background:var(--bg)}
+body{
+  margin:0; color:var(--muted);
+  /* forged-bronze texture (FLUX.2, see the assets log), pre-blended into the page color so it scrolls for free */
+  background:var(--bg) url('../assets/tex-forge.webp') 0 0/360px 360px repeat;
+  font-family:var(--font-ui); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden; position:relative;
+}
+img{max-width:100%; display:block}
+a{color:var(--gold); text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-display); color:var(--ink); line-height:1.14; margin:0; font-weight:700; letter-spacing:.01em}
+p{margin:0 0 1rem}
+::selection{background:rgba(224,168,78,.32); color:#fff}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(18px,5vw,40px)}
+section[id],span[id]{scroll-margin-top:84px}
+.skip{position:absolute; left:12px; top:-60px; z-index:300; background:var(--gold-2); color:#20140a; font-weight:700; padding:.75rem 1rem; border-radius:10px; min-height:44px; display:inline-flex; align-items:center}
+.skip:focus{top:12px}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--gold-2); outline-offset:3px; border-radius:10px}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+/* ---------- reveal: CSS only and always ends visible (no JS dependency) ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* scroll-linked version moves only (never hides), so content is readable at any scroll position */
+@keyframes settle{from{transform:translateY(34px) scale(.985)}to{transform:none}}
+.reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .reveal{animation:rise .7s var(--ease) both}
+  @supports (animation-timeline:view()){
+    .reveal{animation:settle linear both; animation-timeline:view(); animation-range:entry 0% entry 45%}
+    .hero .reveal{animation:rise .8s var(--ease) both; animation-timeline:auto; animation-range:normal}
+  }
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2); background:rgba(15,11,7,.70); border-bottom:1px solid transparent; transition:border-color .3s,background .3s,box-shadow .3s}
+.nav.scrolled{border-bottom-color:var(--line); background:rgba(15,11,7,.88); box-shadow:0 10px 30px -18px rgba(0,0,0,.9)}
+.nav::after{content:""; position:absolute; left:0; bottom:-1px; height:1px; width:100%; transform-origin:0 50%; transform:scaleX(0); background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold-2) 80%,transparent); opacity:.85}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()){.nav::after{animation:progress linear both; animation-timeline:scroll(root)}}}
+@keyframes progress{to{transform:scaleX(1)}}
+.nav-in{display:flex; align-items:center; gap:1.2rem; height:68px}
+.brand{display:flex; align-items:center; gap:.6rem; min-height:44px; font-family:var(--font-display); font-weight:700; color:var(--ink); font-size:1.06rem; letter-spacing:.04em}
+.brand img{width:36px; height:36px; filter:drop-shadow(0 2px 8px rgba(224,168,78,.35))}
+.brand b{color:var(--gold); font-weight:800}
+.nav-links{margin-left:auto; display:flex; gap:.4rem; align-items:center}
+.nav-links a{position:relative; color:var(--muted); font-size:.9rem; font-weight:500; letter-spacing:.03em; transition:color .2s; min-height:44px; display:inline-flex; align-items:center; padding:0 .6rem}
+.nav-links a:not(.btn)::after{content:""; position:absolute; left:.6rem; right:.6rem; bottom:9px; height:1px; background:var(--gold); transform:scaleX(0); transition:transform .3s var(--ease)}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-cta{margin-left:.6rem}
+.nav-links a.nav-cta{color:#20140a; padding:0 1.15rem}
+@media(max-width:820px){.nav-links a:not(.btn){display:none} .nav-in{gap:.6rem}}
+.d-short{display:none}
+@media(max-width:560px){.d-full{display:none} .d-short{display:inline} .brand span{font-size:.95rem}}
+
+/* ---------- buttons ---------- */
+.btn{position:relative; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:48px; font-family:var(--font-ui); font-weight:600; font-size:.95rem; letter-spacing:.02em; padding:.72rem 1.45rem; border-radius:999px; cursor:pointer; border:1px solid transparent; transition:transform .2s var(--ease),box-shadow .25s,background .25s,color .2s,border-color .2s; white-space:nowrap; overflow:hidden; isolation:isolate}
+.btn-primary{background:var(--grad-gold); color:#20140a; border-color:rgba(255,226,160,.55); box-shadow:0 1px 0 rgba(255,245,220,.55) inset,0 -2px 0 rgba(120,70,10,.35) inset,0 10px 26px -10px rgba(224,168,78,.65)}
+.btn-primary::after{content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(110deg,transparent 30%,rgba(255,250,235,.55) 48%,transparent 66%); transform:translateX(-120%); transition:transform .8s var(--ease)}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,245,220,.6) inset,0 -2px 0 rgba(120,70,10,.35) inset,0 16px 34px -12px rgba(224,168,78,.75)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-ghost{background:rgba(20,14,9,.45); color:var(--gold-2); border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--gold); color:var(--gold-2); background:rgba(224,168,78,.08); transform:translateY(-2px)}
+.btn-sm{min-height:44px; padding:.55rem 1.1rem; font-size:.86rem}
+.btn .arw{display:inline-block; transition:transform .25s var(--ease)}
+.btn:hover .arw{transform:translateY(2px)}
+
+/* ---------- section scaffold ---------- */
+section{position:relative}
+.sec{padding:clamp(72px,9vw,120px) 0}
+.sec-alt{background:linear-gradient(180deg,rgba(20,14,9,.0) 0%,rgba(20,14,9,.72) 18%,rgba(20,14,9,.72) 82%,rgba(20,14,9,0) 100%)}
+.eyebrow{font-family:var(--font-ui); font-weight:600; font-size:.76rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; display:inline-flex; align-items:center; gap:.8rem}
+.sec-head .eyebrow::before,.sec-head .eyebrow::after{content:""; width:34px; height:7px; flex:none; background:
+  linear-gradient(var(--gold),var(--gold)) center/100% 1px no-repeat; -webkit-mask:linear-gradient(90deg,transparent,#000 40%); mask:linear-gradient(90deg,transparent,#000 40%); opacity:.8}
+.sec-head .eyebrow::after{-webkit-mask:linear-gradient(270deg,transparent,#000 40%); mask:linear-gradient(270deg,transparent,#000 40%)}
+.sec-head{max-width:720px; margin:0 auto clamp(40px,5vw,60px); text-align:center}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,2.85rem); font-weight:800; margin-bottom:.9rem; text-wrap:balance}
+.sec-head p{font-size:1.06rem; color:var(--muted); margin:0; text-wrap:pretty}
+.lede{color:var(--muted-2)}
+.sec-head .lede{color:var(--muted)}
+
+/* shared material: brass-edged panel (gradient hairline + top sheen + layered shadow) */
+.app-card,.vcard,.step,.promise,.faq,.contact-card,.privacy-details{
+  border:1px solid transparent!important;
+  background:
+    var(--grad-brass) padding-box,
+    linear-gradient(180deg,var(--surface-2),var(--surface)) padding-box,
+    var(--edge) border-box!important;
+  box-shadow:var(--shadow-card)}
+
+/* ---------- hero ---------- */
+.hero{position:relative; padding:clamp(56px,10vw,128px) 0 clamp(56px,8vw,96px); overflow:hidden}
+.hero::before{content:""; position:absolute; inset:0; background:
+  radial-gradient(60% 70% at 78% 45%,rgba(224,168,78,.16),transparent 65%),
+  radial-gradient(50% 60% at 10% 0%,rgba(196,131,42,.10),transparent 70%); pointer-events:none}
+.hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
+.hero-grid{position:relative; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr); align-items:center; gap:clamp(24px,4vw,56px)}
+.hero-in{position:relative; max-width:700px}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.7rem); font-weight:900; letter-spacing:.005em; color:var(--ink); margin:.2rem 0 1.15rem; text-shadow:0 3px 22px rgba(0,0,0,.5)}
+.hero h1 .accent{color:var(--gold); background:var(--grad-gold); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 2px 14px rgba(224,168,78,.25))}
+.hero-sub{font-size:clamp(1.06rem,2.2vw,1.26rem); color:var(--muted); max-width:600px; margin:0 0 2rem; line-height:1.62; text-wrap:pretty}
+.hero-cta{display:flex; gap:.9rem; flex-wrap:wrap}
+.hero-art{position:relative; justify-self:center; width:min(100%,460px); aspect-ratio:1; display:grid; place-items:center}
+.hero-art .hero-float{position:absolute; inset:0; display:grid; place-items:center} /* logo + rune ring float together as one unit (2026-10-02) */
+.hero-art .ring{position:absolute; inset:0; width:100%; height:100%; opacity:.55; filter:drop-shadow(0 0 12px rgba(224,168,78,.18))}
+.hero-art .ring.slow{display:none} /* outer echo ring removed 2026-09-29: read as an off-centre shadow */
+.hero-art .seal{position:relative; width:68%; aspect-ratio:1; border-radius:50%; filter:drop-shadow(0 24px 40px rgba(0,0,0,.65)) drop-shadow(0 0 30px rgba(224,168,78,.22))}
+.hero-art .seal img{width:100%; height:100%}
+.hero-art .seal::after{content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
+  background:linear-gradient(115deg,transparent 38%,rgba(255,242,210,.38) 50%,transparent 62%) 0 0/250% 100% no-repeat;
+  background-position:120% 0; mix-blend-mode:overlay;
+  -webkit-mask:radial-gradient(circle,#000 68%,transparent 70%); mask:radial-gradient(circle,#000 68%,transparent 70%)}
+@media (prefers-reduced-motion:no-preference){
+  .hero-art .ring{animation:spin 140s linear infinite}
+  .hero-art .ring.slow{animation:spin 220s linear infinite reverse}
+  .hero-art .seal::after{animation:sheen 7s ease-in-out 1.2s infinite}
+  .hero-art .hero-float{animation:float 9s ease-in-out infinite}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sheen{0%{background-position:120% 0}45%,100%{background-position:-120% 0}}
+@keyframes float{0%,100%{transform:translateY(-6px)}50%{transform:translateY(6px)}}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1; width:min(46vw,190px); margin:0 0 .4rem; justify-self:start}
+  .hero-art .ring.slow{display:none}
+}
+
+/* ---------- trust strip ---------- */
+.trust{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:linear-gradient(180deg,rgba(28,20,13,.85),rgba(20,14,9,.85)); box-shadow:0 1px 0 rgba(255,236,200,.04) inset}
+.trust-in{display:grid; grid-template-columns:repeat(4,1fr); align-items:center; gap:1rem 0; padding:1.6rem clamp(18px,5vw,40px); max-width:var(--maxw); margin:0 auto}
+@media(max-width:820px){.trust-in{grid-template-columns:repeat(2,1fr); gap:1.4rem 0}}
+.trust-item{text-align:center; padding:0 .6rem; position:relative}
+.trust-item+.trust-item::before{content:""; position:absolute; left:0; top:12%; bottom:12%; width:1px; background:linear-gradient(180deg,transparent,var(--line-2),transparent)}
+@media(max-width:820px){.trust-item:nth-child(3)::before{display:none}}
+.trust-item b{display:block; font-family:var(--font-display); font-weight:800; color:var(--gold-2); font-size:1.6rem; line-height:1.1; margin-bottom:.3rem; text-shadow:0 0 18px rgba(224,168,78,.25)}
+.trust-item b.plat{font-family:var(--font-ui); font-weight:700; font-size:1.28rem; letter-spacing:.01em; line-height:1.36}
+.trust-item span{font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-2)}
+
+/* ---------- apps ---------- */
+.apps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:stretch}
+@media(max-width:940px){.apps-grid{grid-template-columns:1fr; max-width:540px; margin:0 auto}}
+.app-card{position:relative; display:flex; flex-direction:column; border-radius:var(--radius); padding:0 0 1.5rem; overflow:hidden; transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.app-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lift)}
+.app-card::before{content:""; position:absolute; left:0; right:0; top:0; height:2px; z-index:2; background:var(--grad-gold); opacity:.95}
+.app-card>*:not(.demo-thumb){margin-left:1.5rem; margin-right:1.5rem}
+.app-top{display:flex; align-items:center; gap:.9rem; margin-top:-30px; margin-bottom:1rem; position:relative; z-index:2}
+.app-icon{width:60px; height:60px; border-radius:15px; border:1px solid var(--line-hi); box-shadow:0 10px 22px -8px rgba(0,0,0,.8),0 0 0 4px rgba(15,11,7,.9); flex:none; background:var(--surface)}
+.app-top>div{padding-top:28px}
+.app-name{font-family:var(--font-display); font-weight:800; font-size:1.36rem; color:var(--ink); line-height:1.1}
+.pill{display:inline-flex; align-items:center; gap:.4rem; font-family:var(--font-ui); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.24rem .62rem; border-radius:999px; margin-top:.35rem}
+.pill-live{color:#7FE0BA; background:rgba(79,199,154,.12); border:1px solid rgba(79,199,154,.38)}
+.pill-live .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+@media (prefers-reduced-motion:no-preference){.pill-live .dot{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(79,199,154,.55),0 0 8px var(--green)}60%{box-shadow:0 0 0 6px rgba(79,199,154,0),0 0 8px var(--green)}}
+.pill-soon{color:var(--amber); background:rgba(224,168,78,.1); border:1px solid rgba(224,168,78,.34)}
+.app-desc{color:var(--muted); font-size:.97rem; margin:0 0 1.05rem; line-height:1.56}
+.app-desc b{color:var(--ink); font-weight:600}
+.app-feats{list-style:none; padding:0; margin:0 0 1.3rem; display:flex; flex-direction:column; gap:.62rem}
+.app-feats li{position:relative; padding-left:1.45rem; font-size:.91rem; color:var(--muted); line-height:1.46}
+.app-feats li::before{content:""; position:absolute; left:.1rem; top:.5em; width:7px; height:7px; transform:rotate(45deg); background:var(--grad-gold); box-shadow:0 0 6px rgba(224,168,78,.4)}
+.app-foot{margin-top:auto; padding-top:.2rem}
+.learn-more{display:flex; width:100%; margin-top:.8rem}
+.soon-note,.badge small{text-wrap:balance}
+.badges{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:.6rem; margin-bottom:.2rem}
+.badge{display:inline-flex; align-items:center; gap:.6rem; min-height:52px; padding:.5rem .8rem; border-radius:12px; border:1px solid var(--line-2); background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.42)); color:var(--ink); font-size:.78rem; font-weight:600; letter-spacing:.01em; transition:border-color .2s,background .2s,transform .2s var(--ease),box-shadow .25s; box-shadow:0 1px 0 rgba(255,236,200,.05) inset}
+.badge small{display:block; font-size:.6rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-2); line-height:1.1; margin-bottom:2px}
+.badge strong{font-weight:700; font-size:.9rem; line-height:1.1; white-space:nowrap}
+.badge .g{flex:none; width:22px; height:22px; display:grid; place-items:center; color:var(--gold-2)}
+.badge .g svg{width:100%; height:100%; fill:currentColor}
+a.badge:hover{border-color:var(--gold); background:rgba(224,168,78,.09); transform:translateY(-2px); box-shadow:0 10px 22px -12px rgba(224,168,78,.45)}
+a.badge:active{transform:scale(.98)}
+.badge-soon{opacity:.55; cursor:default; border-style:dashed}
+.badge-soon:hover{transform:none; border-color:var(--line-2); background:rgba(0,0,0,.25)}
+.app-links{display:flex; align-items:center; gap:1rem; flex-wrap:wrap; font-size:.84rem}
+.app-links a{color:var(--gold-2); font-weight:600}
+.app-links a:hover{color:var(--gold)}
+.app-links .demo{color:var(--muted)}
+.soon-note{font-size:.72rem; color:var(--muted-2); letter-spacing:.06em; text-transform:uppercase; margin-bottom:.7rem}
+/* QR codes: only where they help (a larger screen, scanned by a phone) */
+.qr-row{display:none}
+@media(min-width:1100px) and (hover:hover){
+  .qr-row{display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-top:.8rem}
+  .qr{margin:0; display:flex; align-items:center; gap:.55rem; padding:.45rem; border:1px solid var(--line); border-radius:12px; background:rgba(0,0,0,.22)}
+  .qr img{width:62px; height:62px; border-radius:6px; background:#fff; padding:3px; flex:none; box-shadow:0 4px 10px -4px rgba(0,0,0,.7)}
+  .qr figcaption{font-size:.7rem; line-height:1.3; color:var(--muted-2); letter-spacing:.02em}
+}
+
+/* ---------- value cards ---------- */
+.cards-4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+@media(max-width:900px){.cards-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.cards-4{grid-template-columns:1fr}}
+.vcard{border-radius:var(--radius-sm); padding:1.5rem 1.35rem; transition:transform .3s var(--ease),box-shadow .3s}
+.vcard:hover{transform:translateY(-4px); box-shadow:var(--shadow-lift)}
+.ico{width:46px; height:46px; display:grid; place-items:center; border-radius:13px; color:var(--gold-2); margin-bottom:1rem;
+  background:radial-gradient(circle at 30% 25%,rgba(239,200,119,.22),rgba(224,168,78,.05) 70%); border:1px solid var(--line-2); box-shadow:0 1px 0 rgba(255,236,200,.10) inset,0 6px 14px -8px rgba(0,0,0,.8)}
+.ico svg{width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+.vcard h3{font-size:1.06rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; letter-spacing:.01em}
+.vcard p{font-size:.91rem; color:var(--muted); margin:0; line-height:1.52}
+
+/* ---------- process ---------- */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; position:relative}
+.steps::before{content:""; position:absolute; left:12%; right:12%; top:44px; height:1px; background:linear-gradient(90deg,transparent,var(--line-hi),transparent); z-index:0}
+@media(max-width:640px){.steps{grid-template-columns:1fr} .steps::before{display:none}}
+.step{position:relative; z-index:1; border-radius:var(--radius-sm); padding:1.4rem 1.35rem 1.4rem}
+.step .num{width:52px; height:52px; display:grid; place-items:center; margin-bottom:.9rem; border-radius:50%; font-family:var(--font-display); font-weight:800; font-size:1.05rem; letter-spacing:.04em; color:#2A1A08;
+  background:radial-gradient(circle at 35% 30%,#FBE3A6,#E6B35C 55%,#D49A45 100%); box-shadow:0 0 0 1px rgba(255,226,160,.6),0 0 0 5px rgba(15,11,7,.95),0 0 0 6px var(--line-2),0 10px 20px -8px rgba(0,0,0,.8)}
+.step h3{font-size:1.04rem; color:var(--ink); margin-bottom:.45rem}
+.step p{font-size:.9rem; color:var(--muted); margin:0; line-height:1.52}
+
+/* ---------- forge promises ---------- */
+.promises{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem}
+@media(max-width:760px){.promises{grid-template-columns:1fr}}
+.promise{text-align:center; padding:1.7rem 1.35rem; border-radius:var(--radius-sm)}
+.promise .ico{margin:0 auto 1rem}
+.promise h3{font-size:1.08rem; color:var(--ink); margin-bottom:.5rem}
+.promise p{font-size:.91rem; color:var(--muted); margin:0}
+
+/* ---------- about ---------- */
+.about-grid{display:grid; grid-template-columns:1fr; gap:1.4rem; max-width:800px; margin:0 auto}
+.about-lead{font-size:clamp(1.14rem,2.2vw,1.3rem); color:var(--ink); font-weight:500; line-height:1.5; margin-bottom:.4rem; padding-left:1.1rem; border-left:2px solid var(--gold); text-wrap:pretty}
+.about-grid p{color:var(--muted)}
+.chips{display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-top:.6rem}
+.chip{font-size:.78rem; font-weight:600; letter-spacing:.03em; color:var(--gold-2); background:rgba(224,168,78,.08); border:1px solid var(--line-2); border-radius:999px; padding:.42rem .95rem}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:820px; margin:0 auto}
+.faq{border-radius:var(--radius-sm); margin-bottom:.75rem; overflow:hidden; transition:box-shadow .3s}
+.faq[open]{box-shadow:var(--shadow-lift)}
+.faq summary{list-style:none; cursor:pointer; min-height:56px; padding:1rem 1.3rem; font-family:var(--font-display); font-weight:600; color:var(--ink); font-size:1.02rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; transition:color .2s}
+.faq summary:hover{color:var(--gold-2)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .fx{color:var(--gold); font-family:var(--font-ui); font-weight:400; font-size:1.3rem; line-height:1; width:32px; height:32px; flex:none; display:grid; place-items:center; border-radius:50%; border:1px solid var(--line-2); transition:transform .3s var(--ease),background .2s}
+.faq[open] summary .fx{transform:rotate(45deg); background:rgba(224,168,78,.1)}
+.faq .faq-a{padding:0 1.3rem 1.2rem; color:var(--muted); font-size:.95rem; line-height:1.58}
+@media (prefers-reduced-motion:no-preference){.faq[open] .faq-a{animation:rise .35s var(--ease) both}}
+
+/* ---------- cta band ---------- */
+.cta-band{overflow:hidden; background:
+  radial-gradient(70% 120% at 50% 100%,rgba(224,168,78,.20),transparent 65%),
+  linear-gradient(135deg,rgba(196,131,42,.14),rgba(20,14,9,.6)); border-top:1px solid var(--line-2); border-bottom:1px solid var(--line-2); text-align:center}
+.cta-band::before{content:""; position:absolute; left:50%; top:50%; width:min(760px,140vw); aspect-ratio:1; transform:translate(-50%,-50%); background:url('../assets/rune-ring.svg') center/contain no-repeat; opacity:.10; pointer-events:none}
+.cta-band .wrap{position:relative}
+.cta-band h2{font-size:clamp(1.8rem,4.6vw,2.7rem); font-weight:800; color:var(--ink); margin-bottom:.9rem; text-wrap:balance}
+.cta-band p{font-size:1.08rem; color:var(--muted); max-width:560px; margin:0 auto 1.8rem}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:2.4rem; align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr; gap:1.6rem}}
+.contact-lines{display:flex; flex-direction:column; gap:.1rem; margin:1.2rem 0 1.4rem}
+.contact-lines a,.contact-lines span{color:var(--ink); font-size:1.05rem}
+.contact-lines a{min-height:44px; display:inline-flex; align-items:center; align-self:flex-start; transition:color .2s}
+.contact-lines a:hover{color:var(--gold-2)}
+.contact-lines .lbl{color:var(--muted-2); font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-top:.7rem}
+.hours{font-size:.88rem; color:var(--muted-2)}
+.contact-card{border-radius:var(--radius); padding:1.8rem}
+.contact-card h3{font-size:1.2rem; color:var(--ink); margin-bottom:.6rem}
+.contact-card p{font-size:.93rem; color:var(--muted)}
+.contact-card .btn{width:100%}
+.social{display:flex; gap:.7rem; margin-top:1.3rem}
+.social a{width:48px;height:48px;display:grid;place-items:center;border-radius:13px;border:1px solid var(--line-2);color:var(--gold-2);background:rgba(0,0,0,.2);transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.social a svg{width:20px;height:20px;fill:currentColor}
+.social a:hover{background:rgba(224,168,78,.1); border-color:var(--gold); transform:translateY(-2px)}
+
+/* ---------- footer ---------- */
+footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); border-top:1px solid var(--line); padding:2.8rem 0 2rem}
+.foot-in{display:flex; flex-wrap:wrap; gap:1.4rem; align-items:center; justify-content:space-between}
+.foot-brand{display:flex; align-items:center; gap:.7rem}
+.foot-brand img{width:44px;height:44px}
+.foot-brand b{font-family:var(--font-display); color:var(--ink); font-weight:700; font-size:1.05rem; display:block}
+.foot-brand span{font-size:.84rem; color:var(--muted-2)}
+.foot-links{display:flex; flex-wrap:wrap; gap:0 .4rem; font-size:.87rem}
+.foot-links a{color:var(--muted); min-height:44px; display:inline-flex; align-items:center; padding:0 .55rem}
+.foot-links a:hover{color:var(--gold-2)}
+.foot-copy{width:100%; text-align:center; color:var(--faint); font-size:.8rem; margin-top:1.6rem; border-top:1px solid var(--line); padding-top:1.4rem}
+
+/* ---------- privacy / legal (verbatim content, styled) ---------- */
+.privacy-section{padding:clamp(28px,4vw,44px) clamp(18px,5vw,40px)}
+.privacy-section .privacy-details{max-width:820px; margin:0 auto}
+.privacy-details{border-radius:var(--radius-sm); overflow:hidden}
+.privacy-summary{list-style:none; cursor:pointer; min-height:56px; padding:1rem 1.4rem; font-family:var(--font-display); font-weight:600; color:var(--ink); font-size:1.1rem; display:flex; justify-content:space-between; align-items:center}
+.privacy-summary::-webkit-details-marker{display:none}
+.privacy-chevron{color:var(--gold); font-size:.9rem; transition:transform .25s}
+.privacy-details[open] .privacy-chevron{transform:rotate(180deg)}
+.privacy-body{padding:.4rem 1.4rem 1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.93rem; line-height:1.64}
+.privacy-body h3{font-family:var(--font-display); color:var(--gold-2); font-size:1.02rem; margin:1.4rem 0 .5rem}
+.privacy-body ul{padding-left:1.2rem; margin:.3rem 0 1rem}
+.privacy-body li{margin-bottom:.5rem}
+.privacy-body a{color:var(--gold); text-decoration:underline; text-decoration-color:rgba(224,168,78,.4); text-underline-offset:3px}
+.privacy-meta{color:var(--muted-2); font-size:.82rem; margin-bottom:.6rem}
+.privacy-intro{color:var(--muted)}
+.copy-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.copy-lbl{font-size:.8rem;color:var(--muted-2)}
+.copy-row code{font-family:var(--font-ui);font-size:.92rem;color:var(--ink);background:rgba(0,0,0,.3);border:1px solid var(--line-2);border-radius:9px;padding:.5rem .65rem;user-select:all;-webkit-user-select:all;max-width:100%;overflow-wrap:anywhere}
+.copy-btn{font-family:var(--font-ui);font-weight:600;font-size:.84rem;color:var(--gold-2);background:transparent;border:1px solid var(--line-2);border-radius:9px;min-height:44px;min-width:64px;padding:.42rem .9rem;cursor:pointer;transition:background .2s,border-color .2s}
+.copy-btn:hover{background:rgba(224,168,78,.1);border-color:var(--gold)}
+
+/* ---- demo video (self-hosted, poster as the card's banner, expandable modal) ---- */
+.demo-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;margin:0 0 0;border:0;border-bottom:1px solid var(--line-2);overflow:hidden;cursor:pointer;background:#000;padding:0;line-height:0;font:inherit;color:inherit}
+.demo-thumb img{width:100%;height:100%;object-fit:cover;object-position:center var(--py,45%);opacity:.96;transition:opacity .3s,transform .9s var(--ease)}
+.demo-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,11,7,0) 40%,rgba(15,11,7,.55) 78%,rgba(28,20,13,.95));pointer-events:none}
+.app-card:hover .demo-thumb img,.demo-thumb:hover img{opacity:1;transform:scale(1.045)}
+.demo-thumb .play{position:absolute;right:14px;bottom:14px;display:flex;pointer-events:none;z-index:1}
+.demo-thumb .play span{width:52px;height:52px;border-radius:50%;background:rgba(15,11,7,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(239,200,119,.75);display:grid;place-items:center;color:var(--gold-2);font-size:1.1rem;padding-left:4px;box-shadow:0 8px 24px rgba(0,0,0,.55),0 0 0 6px rgba(239,200,119,.10);transition:transform .3s var(--ease),background .25s,color .25s}
+.demo-thumb:hover .play span{transform:scale(1.08);background:rgba(224,168,78,.94);color:#20140a}
+.demo-thumb .cap{position:absolute;right:.8rem;top:.8rem;z-index:1;padding:.32rem .6rem;border-radius:999px;font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.04em;color:var(--ink);background:rgba(15,11,7,.72);border:1px solid var(--line-2);line-height:1.2}
+.demo-thumb:focus-visible{outline-offset:-3px;border-radius:0}
+.demo-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(8,6,4,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:24px}
+.demo-modal.open{display:flex}
+@media (prefers-reduced-motion:no-preference){.demo-modal.open .demo-box{animation:pop .35s var(--ease) both}}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+.demo-box{position:relative;width:100%;max-width:min(92vw,400px);max-height:90vh;border-radius:16px;overflow:visible;border:1px solid var(--line-2);box-shadow:0 30px 80px -20px #000,0 0 0 1px rgba(239,200,119,.12);background:#000}
+.demo-box video{display:block;width:100%;max-height:90vh;background:#000;border-radius:16px}
+.demo-close{position:absolute;top:-16px;right:-16px;width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-2);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;z-index:2;transition:background .2s,color .2s}
+.demo-close:hover{background:var(--gold-2);color:#20140a;border-color:var(--gold-2)}
+@media(max-width:520px){.demo-close{top:8px;right:8px}}
+</style>
+<style>
+:root{--accent:#3FB8C0;--accent-2:#8FE0E4;--glow:rgba(63,184,192,.30);--tint:#0E2422}
+/* ---------- app info page (accent per app via --accent/--accent-2/--glow/--tint) ---------- */
+.app-page .eyebrow{color:var(--accent-2)}
+.sec-tight{padding:clamp(48px,6vw,80px) 0}
+.ap-hero{position:relative; overflow:hidden; padding:clamp(40px,6vw,88px) 0 clamp(40px,5vw,72px);
+  background:radial-gradient(900px 480px at 82% 30%,var(--glow),transparent 65%),linear-gradient(180deg,var(--tint),var(--bg) 92%)}
+.ap-grid{display:grid; grid-template-columns:1.02fr 1fr; gap:clamp(28px,4vw,64px); align-items:center}
+.ap-id{display:flex; align-items:center; gap:1rem; margin-bottom:1.1rem}
+.ap-id .eyebrow{margin:0}
+.ap-icon{width:72px; height:72px; border-radius:18px; border:1px solid var(--line-hi); box-shadow:0 14px 30px -10px rgba(0,0,0,.85),0 0 0 4px rgba(15,11,7,.8)}
+.ap-hero h1{font-size:clamp(2.5rem,6.2vw,4.3rem); font-weight:800; letter-spacing:.01em; margin-bottom:.9rem; text-wrap:balance}
+.tagline{font-family:var(--font-display); font-weight:700; font-size:clamp(1.12rem,2vw,1.36rem); color:var(--accent-2); margin:0 0 1rem; text-wrap:balance}
+.ap-lede{font-size:1.04rem; color:var(--muted); margin:0 0 1.6rem; max-width:560px; text-wrap:pretty}
+.ap-hero .badges{max-width:420px}
+.ap-pills{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.1rem}
+.ap-pill{font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-2); border:1px solid var(--line-2); border-radius:999px; padding:.32rem .75rem; background:rgba(0,0,0,.25)}
+.ap-art{position:relative}
+.ap-art img{display:block; width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--line-2); box-shadow:var(--shadow-lift),0 0 60px -10px var(--glow)}
+@media(max-width:900px){.ap-grid{grid-template-columns:1fr}.ap-art{order:-1}}
+
+/* screenshots: sideways strip, snaps one at a time */
+.shots{display:flex; gap:clamp(14px,2vw,22px); overflow-x:auto; scroll-snap-type:x mandatory; padding:6px max(18px,calc((100vw - var(--maxw))/2 + 40px)) 22px; scrollbar-width:thin; scrollbar-color:var(--line-2) transparent}
+.shots:focus-visible{outline:2px solid var(--accent); outline-offset:4px}
+.shot{flex:none; width:clamp(220px,62vw,264px); margin:0; scroll-snap-align:center}
+.shot img{display:block; width:100%; height:auto; border-radius:16px; border:1px solid var(--line-2); box-shadow:var(--shadow-card)}
+
+.demo-grid{display:grid; grid-template-columns:1fr auto; gap:clamp(24px,4vw,56px); align-items:center; max-width:880px}
+.demo-copy h2{font-size:clamp(1.7rem,3.6vw,2.4rem); font-weight:800; margin-bottom:.7rem; text-wrap:balance}
+.demo-copy p{margin:0}
+.demo-frame{width:min(300px,78vw); border-radius:22px; padding:8px; background:linear-gradient(160deg,var(--surface-2),#0b0805); border:1px solid var(--line-2); box-shadow:var(--shadow-lift),0 0 50px -14px var(--glow)}
+.demo-frame video{display:block; width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:15px; background:#000}
+@media(max-width:760px){.demo-grid{grid-template-columns:1fr; justify-items:center; text-align:center}}
+
+.feat-grid{display:flex; flex-wrap:wrap; justify-content:center; gap:1.1rem}
+.feat{flex:1 1 280px; max-width:calc((100% - 2.2rem)/3)}
+@media(max-width:900px){.feat{max-width:calc((100% - 1.1rem)/2)}}
+@media(max-width:620px){.feat{max-width:100%}}
+.feat{position:relative; border-radius:var(--radius-sm); padding:1.35rem 1.35rem 1.25rem; background:linear-gradient(180deg,var(--surface),var(--bg-2)); border:1px solid var(--line); box-shadow:var(--shadow-card)}
+.feat::before{content:""; position:absolute; left:1.35rem; top:0; width:42px; height:2px; background:var(--accent)}
+.feat h3{font-size:1.08rem; font-weight:700; margin:.2rem 0 .5rem; text-wrap:balance}
+.feat p{margin:0; font-size:.94rem; line-height:1.55; text-wrap:pretty}
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-top:1.1rem}
+@media(max-width:820px){.two-col{grid-template-columns:1fr}}
+.panel{border-radius:var(--radius-sm); padding:1.5rem; background:rgba(0,0,0,.22); border:1px solid var(--line-2)}
+.panel h3{font-size:1.18rem; font-weight:700; margin-bottom:1rem; color:var(--accent-2); text-wrap:balance}
+.tool-list,.check-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.75rem}
+.tool-list li{display:flex; flex-direction:column; gap:.1rem; font-size:.94rem; line-height:1.5}
+.tool-list b{color:var(--ink); font-weight:600}
+.check-list li{position:relative; padding-left:1.5rem; font-size:.94rem; line-height:1.5; text-wrap:pretty}
+.check-list li::before{content:""; position:absolute; left:.15rem; top:.48em; width:7px; height:7px; transform:rotate(45deg); background:var(--accent); box-shadow:0 0 8px var(--glow)}
+
+.secret{max-width:720px; margin:0 auto; text-align:center; padding:clamp(28px,4vw,44px); border-radius:var(--radius); border:1px solid var(--line-2); background:radial-gradient(600px 240px at 50% 0%,var(--glow),transparent 70%),var(--bg-2)}
+.secret h2{font-size:clamp(1.6rem,3.4vw,2.2rem); font-weight:800; margin-bottom:.8rem; text-wrap:balance}
+.secret p{margin:0; font-style:italic; text-wrap:balance}
+
+.get{background:radial-gradient(800px 360px at 50% 0%,var(--glow),transparent 70%),linear-gradient(180deg,var(--bg),var(--tint))}
+.get-in{max-width:620px; text-align:center; display:flex; flex-direction:column; align-items:center}
+.get-icon{width:88px; height:88px; border-radius:22px; border:1px solid var(--line-hi); box-shadow:0 18px 36px -12px rgba(0,0,0,.9); margin-bottom:1.2rem}
+.get h2{font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; margin-bottom:.5rem; text-wrap:balance}
+.get-in>p{margin:0 0 1.4rem}
+.get .badges{width:100%; max-width:420px; margin-bottom:1.6rem}
+.get .credit{font-size:.8rem; color:var(--muted-2); max-width:520px; margin:0 0 1.4rem; text-wrap:balance}
+
+.tagline .nw{white-space:nowrap}
+</style>
+</head>
+<body class="app-page">
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><img src="../assets/medallion-96.webp" width="36" height="36" alt="DigiRune Studios"><span>DigiRune <b>Studios</b></span></a>
+    <nav class="nav-links">
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/#publishers">Publishers</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="#get"><span class="d-full">Get the App</span><span class="d-short">Get It</span></a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="ap-hero">
+  <div class="wrap ap-grid">
+    <div class="ap-copy">
+      <div class="ap-id"><img class="ap-icon" src="../assets/icon-mercs.webp" width="72" height="72" alt="MERCS Companion app icon"><span class="eyebrow">Official Field Companion</span></div>
+      <h1>MERCS<br>Companion</h1>
+      <p class="tagline"><span class="nw">Every unit.</span> <span class="nw">Every card.</span> <span class="nw">Every mission.</span></p>
+      <p class="ap-lede">The official companion app for MERCS 2.5: your complete tactical reference, at the table and off. Every model, card, mission and rule from the game you own, organized to find in a tap and built to work with no signal.</p>
+      <div class="badges"><a class="badge" data-goatcounter-click="store-mercs-apple-hero" data-goatcounter-title="MERCS Companion: App Store (hero)" href="https://apps.apple.com/app/mercs-companion-wargame-rules/id6794927606" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.8-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.72-.69 3.56-1.7"/></svg></span><span><small>Download on the</small><strong>App Store</strong></span></a><a class="badge" data-goatcounter-click="store-mercs-google-hero" data-goatcounter-title="MERCS Companion: Google Play (hero)" href="https://play.google.com/store/apps/details?id=com.digirunestudios.mercs" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.02 13.3l-3.92 2.22-3.52-3.5 3.55-3.52 3.89 2.2a1.49 1.49 0 0 1 0 2.6zM1.34.92a1.49 1.49 0 0 0-.11.57v21.02c0 .22.04.42.12.6l11.16-11.09L1.34.92zm12.2 10.07l3.26-3.24L3.45.2a1.47 1.47 0 0 0-.95-.18l11.04 10.97zm0 2.07l-11 10.93c.3.04.61-.02.9-.18l13.33-7.54-3.23-3.21z"/></svg></span><span><small>Get it on</small><strong>Google Play</strong></span></a></div>
+      <div class="ap-pills"><span class="ap-pill">No ads</span><span class="ap-pill">No subscription</span><span class="ap-pill">Works offline</span></div>
+    </div>
+    <div class="ap-art"><img src="../assets/apps/mercs-feature.webp" width="1024" height="500" alt="MERCS Companion: Every unit. Every card. Every mission." fetchpriority="high"></div>
+  </div>
+</section>
+
+<section class="sec sec-tight" id="look">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">A look inside</span><h2>See it at the table</h2></div>
+  </div>
+  <div class="shots" tabindex="0" aria-label="App screenshots, scroll sideways">
+<figure class="shot"><img src="../assets/apps/mercs-shot-1.webp" width="640" height="1138" alt="Your official MERCS companion" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-2.webp" width="640" height="1138" alt="All 123 units, every stat and weapon" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-3.webp" width="640" height="1138" alt="No ads. No subscription. Pay once, yours forever." loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-4.webp" width="640" height="1138" alt="Build a legal strike team" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-5.webp" width="640" height="1138" alt="Draw contingencies live at the table" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-6.webp" width="640" height="1138" alt="Run all ten operations, briefed in full" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-7.webp" width="640" height="1138" alt="All 12 MegaCons, one tap away" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="../assets/apps/mercs-shot-8.webp" width="640" height="1138" alt="Master every corp and its traits" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section class="sec sec-tight" id="demo">
+  <div class="wrap demo-grid">
+    <div class="demo-copy"><span class="eyebrow">Watch the demo</span><h2>See it in action</h2><p>A quick tour of the real app, in under 20 seconds.</p></div>
+    <div class="demo-frame"><video controls playsinline preload="none" poster="../mercs-demo-poster.jpg" src="../mercs-demo.mp4" aria-label="MERCS Companion demo video"></video></div>
+  </div>
+</section>
+
+<section class="sec" id="inside">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">MERCS 2.5</span><h2>What&#x27;s inside</h2></div>
+    <div class="feat-grid">
+<article class="feat"><h3>12 MegaCons, 123 units</h3><p>Full stat lines, weapons and abilities, plus the real Reference Card front and back.</p></article>
+<article class="feat"><h3>Every Contingency deck</h3><p>Card by card: 19 shared cards plus each MegaCon’s faction-unique card, verbatim.</p></article>
+<article class="feat"><h3>Corporate Traits</h3><p>For all 12 MegaCons: the faction-wide rules and tables that always apply.</p></article>
+<article class="feat"><h3>All ten Operations</h3><p>Briefed in full: briefings, parameters and secured objectives, with battle maps for featured operations.</p></article>
+<article class="feat"><h3>The complete rules</h3><p>The MERCS 2.5 core ruleset plus the Recon add-on, the modifier tables and a searchable glossary.</p></article>
+    </div>
+    <div class="two-col">
+      <div class="panel"><h3>Seven battlefield tools, plus Favorites</h3><ul class="tool-list">
+<li><b>Strike Team Builder</b><span>Build a legal team with a live legality check.</span></li>
+<li><b>Contingency Draw</b><span>Deal and manage a real hand during play.</span></li>
+<li><b>Operation Setup</b><span>Track parameters and score objectives live.</span></li>
+<li><b>Round Tracker</b><span>Initiative and activation order, Quick handled for you.</span></li>
+<li><b>Damage and Armor</b><span>Blood pips and armor checks, no math.</span></li>
+<li><b>MERCS Codex</b><span>A color-coded stat heatmap across the whole game.</span></li>
+<li><b>Compare Units</b><span>Stack two or three models side by side.</span></li>
+      </ul></div>
+      <div class="panel"><h3>Built the way it should be</h3><ul class="check-list">
+<li>No ads. No subscription. No tracking. Pay once, yours forever.</li>
+<li>Works fully offline, there when the table has no signal.</li>
+<li>Optional sign-in syncs your teams, trackers and favorites across devices.</li>
+<li>Universal search finds any unit, card, mission, rule or keyword instantly.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec get" id="get">
+  <div class="wrap get-in">
+    <img class="get-icon" src="../assets/icon-mercs.webp" width="88" height="88" alt="" loading="lazy">
+    <h2>Get MERCS Companion</h2>
+    <p>Available now on iPhone, iPad and Android.</p>
+    <div class="badges"><a class="badge" data-goatcounter-click="store-mercs-apple-footer" data-goatcounter-title="MERCS Companion: App Store (footer)" href="https://apps.apple.com/app/mercs-companion-wargame-rules/id6794927606" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.8-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.72-.69 3.56-1.7"/></svg></span><span><small>Download on the</small><strong>App Store</strong></span></a><a class="badge" data-goatcounter-click="store-mercs-google-footer" data-goatcounter-title="MERCS Companion: Google Play (footer)" href="https://play.google.com/store/apps/details?id=com.digirunestudios.mercs" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.02 13.3l-3.92 2.22-3.52-3.5 3.55-3.52 3.89 2.2a1.49 1.49 0 0 1 0 2.6zM1.34.92a1.49 1.49 0 0 0-.11.57v21.02c0 .22.04.42.12.6l11.16-11.09L1.34.92zm12.2 10.07l3.26-3.24L3.45.2a1.47 1.47 0 0 0-.95-.18l11.04 10.97zm0 2.07l-11 10.93c.3.04.61-.02.9-.18l13.33-7.54-3.23-3.21z"/></svg></span><span><small>Get it on</small><strong>Google Play</strong></span></a></div>
+    <p class="credit">An official DigiRune Studios companion for MERCS 2.5. MERCS™ © Fifth Angel Studios, used under license.</p>
+    <a class="btn btn-ghost btn-sm" href="/portfolio/">See Our Entire Portfolio <span class="arw" aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <img src="../assets/medallion-96.webp" width="44" height="44" alt="DigiRune Studios" loading="lazy">
+        <div><b>DigiRune Studios</b><span>Your World in Their Pocket</span></div>
+      </div>
+      <nav class="foot-links">
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/#publishers">Publishers</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#privacy">Privacy Policy</a>
+        <a href="/#data-deletion">Account &amp; Data Deletion</a>
+      </nav>
+    </div>
+    <div class="foot-copy">DigiRune Studios • Beaufort, South Carolina • Est. 2025<br>© 2025-2026 McCullough Development, Inc. d/b/a DigiRune Studios. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+(function(){var nav=document.getElementById('nav');function s(){nav.classList.toggle('scrolled',window.scrollY>12)}window.addEventListener('scroll',s,{passive:true});s();})();
+</script>
+<!-- GoatCounter analytics (privacy-friendly, no cookies) -->
+<script data-goatcounter="https://digirune.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
