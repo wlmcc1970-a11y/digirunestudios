@@ -186,6 +186,8 @@ section{position:relative}
 /* ---------- apps ---------- */
 .apps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:stretch}
 @media(max-width:940px){.apps-grid{grid-template-columns:1fr; max-width:540px; margin:0 auto}}
+.apps-grid.even{grid-template-columns:repeat(2,1fr); max-width:820px; margin:0 auto}
+@media(max-width:940px){.apps-grid.even{grid-template-columns:1fr; max-width:540px}}
 .app-card{position:relative; display:flex; flex-direction:column; border-radius:var(--radius); padding:0 0 1.5rem; overflow:hidden; transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .app-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lift)}
 .app-card::before{content:""; position:absolute; left:0; right:0; top:0; height:2px; z-index:2; background:var(--grad-gold); opacity:.95}
@@ -444,7 +446,7 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
       </article>
     </div>
     <div class="group-head reveal"><h3>Our own apps</h3><p>Tools we design for players and hobbyists, from the same studio and the same standards.</p></div>
-    <div class="apps-grid">
+    <div class="apps-grid even">
       <article class="app-card reveal">
         <button type="button" class="demo-thumb" style="--py:38%" data-demo data-video="../sheetmancer-demo.mp4?v=20260929" aria-label="Play the Sheetmancer demo video">
         <img src="../sheetmancer-demo-poster.jpg" alt="" loading="lazy">
@@ -500,6 +502,20 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
           <li>No ads. No subscription. 3 Scan Credits included.</li>
         </ul>
         <div class="app-foot"><p class="soon-note">Coming soon to the App Store and Google Play.</p><a class="btn btn-ghost btn-sm learn-more" data-goatcounter-click="learnmore-stitchscroll" data-goatcounter-title="Stitch Scroll: Learn More" href="https://stitchscroll.digirunestudios.com/" target="_blank" rel="noopener" aria-label="Learn more about Stitch Scroll (opens its website)">Learn More <span class="arw" aria-hidden="true">&rarr;</span></a></div>
+      </article>
+      <article class="app-card reveal">
+        <div class="demo-thumb" style="--py:50%;cursor:default"><img style="object-position:0% 50%" src="../assets/fakernight-cover.jpg" alt="Faker Night: Party Games" loading="lazy"></div>
+        <div class="app-top">
+          <img class="app-icon" src="../assets/icon-fakernight.webp" width="60" height="60" alt="Faker Night app icon" loading="lazy">
+          <div><div class="app-name">Faker Night</div><span class="pill pill-soon"><span class="dot"></span>Coming Soon</span></div>
+        </div>
+        <p class="app-desc"><b>Three party games. One phone.</b></p>
+        <ul class="app-feats">
+          <li>Find the Faker, Most Likely To and Forehead Guess, pass the phone around</li>
+          <li>No accounts, no setup, works with no signal</li>
+          <li>Free to play. No ads. No subscription. One optional unlock, forever.</li>
+        </ul>
+        <div class="app-foot"><p class="soon-note">Coming soon to the App Store and Google Play.</p><a class="btn btn-ghost btn-sm learn-more" data-goatcounter-click="learnmore-fakernight" data-goatcounter-title="Faker Night: Learn More" href="https://fakernight.digirunestudios.com/" target="_blank" rel="noopener" aria-label="Learn more about Faker Night (opens its website)">Learn More <span class="arw" aria-hidden="true">&rarr;</span></a></div>
       </article>
     </div>
   </div>
