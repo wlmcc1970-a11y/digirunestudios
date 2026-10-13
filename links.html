@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigiRune Studios: All Our Apps and Links</title>
+<meta name="description" content="Every DigiRune Studios app in one place: Sheetmancer, Card Night, Stitch Scroll, Faker Night, MERCS and Twisted, plus our social channels.">
+<meta name="theme-color" content="#0F0B07">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://digirunestudios.com/links.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigiRune Studios">
+<meta property="og:url" content="https://digirunestudios.com/links.html">
+<meta property="og:title" content="DigiRune Studios: All Our Apps and Links">
+<meta property="og:description" content="Every DigiRune Studios app in one place, plus our social channels.">
+<meta property="og:image" content="https://digirunestudios.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@DigiRuneStudios">
+<link href="/assets/fonts/site-fonts.css" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0B07; --surface:#1C140D; --surface-2:#241A11;
+  --line:rgba(224,168,78,.16); --line-2:rgba(224,168,78,.30); --line-hi:rgba(239,200,119,.55);
+  --gold:#E0A84E; --gold-2:#EFC877; --gold-deep:#C4832A;
+  --ink:#F6EFDE; --muted:#CDBFA6; --muted-2:#A6977E; --faint:#9A8D76;
+  --green:#4FC79A; --amber:#E0A84E;
+  --grad-gold:linear-gradient(135deg,#F3D48C 0%,#E0A84E 45%,#C4832A 100%);
+  --grad-brass:linear-gradient(180deg,rgba(255,226,166,.10),rgba(255,226,166,0) 38%);
+  --edge:linear-gradient(160deg,rgba(239,200,119,.55),rgba(224,168,78,.14) 30%,rgba(224,168,78,.10) 70%,rgba(196,131,42,.38));
+  --shadow-card:0 1px 0 rgba(255,236,200,.06) inset,0 2px 4px rgba(0,0,0,.35),0 18px 40px -18px rgba(0,0,0,.75);
+  --shadow-lift:0 1px 0 rgba(255,236,200,.08) inset,0 4px 10px rgba(0,0,0,.35),0 30px 60px -24px rgba(0,0,0,.85),0 0 0 1px rgba(239,200,119,.10);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --font-display:'Cinzel',Georgia,'Times New Roman',serif;
+  --font-ui:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0; color:var(--muted); background:var(--bg) url('/assets/tex-forge.webp') 0 0/360px 360px repeat; font-family:var(--font-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+a{color:var(--gold); text-decoration:none}
+img{display:block; max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--gold-2); outline-offset:3px; border-radius:12px}
+.nw{white-space:nowrap}
+.wrap{max-width:560px; margin:0 auto; padding:clamp(28px,7vw,56px) 16px 28px}
+header{text-align:center; margin-bottom:26px}
+header .seal{width:88px; height:88px; margin:0 auto 14px; filter:drop-shadow(0 12px 22px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(224,168,78,.22))}
+h1{font-family:var(--font-display); font-weight:800; color:var(--ink); font-size:clamp(1.55rem,6vw,1.9rem); letter-spacing:.03em; margin:0; line-height:1.15; text-wrap:balance}
+h1 b{color:var(--gold); font-weight:800}
+.tag{font-size:.95rem; color:var(--muted-2); margin:.45rem 0 0; text-wrap:balance}
+.eyebrow{font-weight:600; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); text-align:center; margin:28px 0 12px}
+.list{display:flex; flex-direction:column; gap:12px}
+.tile{display:grid; grid-template-columns:56px 1fr; grid-template-areas:"icon body" "act act"; gap:10px 14px; align-items:start; padding:16px 16px 14px; border-radius:16px; color:var(--muted);
+  border:1px solid transparent; background:var(--grad-brass) padding-box,linear-gradient(180deg,var(--surface-2),var(--surface)) padding-box,var(--edge) border-box; box-shadow:var(--shadow-card);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease); min-height:44px}
+.tile:hover{transform:translateY(-3px); box-shadow:var(--shadow-lift)}
+.tile:active{transform:scale(.99)}
+.tile.first{background:var(--grad-brass) padding-box,linear-gradient(180deg,#2C2015,var(--surface-2)) padding-box,linear-gradient(160deg,rgba(243,212,140,.85),rgba(224,168,78,.3) 40%,rgba(196,131,42,.6)) border-box}
+.ticon{grid-area:icon; width:56px; height:56px; border-radius:14px; border:1px solid var(--line-hi); box-shadow:0 8px 18px -8px rgba(0,0,0,.8)}
+.tbody{grid-area:body; display:flex; flex-direction:column; align-items:flex-start; min-width:0}
+.tname{font-family:var(--font-display); font-weight:800; color:var(--ink); font-size:1.18rem; line-height:1.15}
+.pill{display:inline-flex; align-items:center; gap:.4rem; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .58rem; border-radius:999px; margin:.35rem 0 .45rem}
+.pill .dot{width:7px; height:7px; border-radius:50%}
+.pill-live{color:#7FE0BA; background:rgba(79,199,154,.12); border:1px solid rgba(79,199,154,.38)}
+.pill-live .dot{background:var(--green); box-shadow:0 0 8px var(--green)}
+.pill-soon{color:var(--amber); background:rgba(224,168,78,.1); border:1px solid rgba(224,168,78,.34)}
+.pill-soon .dot{background:var(--amber)}
+.tdesc{font-size:.93rem; line-height:1.48; text-wrap:pretty}
+.tact{grid-area:act; display:flex; align-items:center; justify-content:center; min-height:44px; border-radius:999px; border:1px solid var(--line-2); background:rgba(20,14,9,.45); color:var(--gold-2); font-weight:600; font-size:.9rem; letter-spacing:.02em; gap:.4rem}
+.tile.first .tact{background:var(--grad-gold); color:#20140a; border-color:rgba(255,226,160,.55); box-shadow:0 1px 0 rgba(255,245,220,.55) inset,0 10px 22px -10px rgba(224,168,78,.65)}
+.tile:hover .tact{border-color:var(--gold)}
+.more{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:16px}
+.more a{flex:1 1 200px; display:flex; align-items:center; justify-content:center; min-height:48px; border-radius:999px; border:1px solid var(--line-2); background:rgba(20,14,9,.45); color:var(--gold-2); font-weight:600; font-size:.9rem}
+.more a:hover{border-color:var(--gold); background:rgba(224,168,78,.08)}
+.social{display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center}
+.social a{width:48px; height:48px; display:grid; place-items:center; border-radius:13px; border:1px solid var(--line-2); color:var(--gold-2); background:rgba(0,0,0,.2); transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.social a svg{width:20px; height:20px; fill:currentColor}
+.social a:hover{background:rgba(224,168,78,.1); border-color:var(--gold); transform:translateY(-2px)}
+footer{text-align:center; color:var(--faint); font-size:.78rem; margin-top:30px; padding-top:18px; border-top:1px solid var(--line); text-wrap:balance}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <img class="seal" src="/assets/medallion-560.webp" width="88" height="88" alt="DigiRune Studios medallion">
+    <h1>DigiRune <b>Studios</b></h1>
+    <p class="tag">Apps for tabletop players, card tables and makers. Tap an app to see it.</p>
+  </header>
+
+  <p class="eyebrow">Our apps</p>
+  <nav class="list" aria-label="DigiRune Studios apps">
+      <a class="tile first" href="https://sheetmancer.digirunestudios.com/about.html?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" target="_blank" rel="noopener" data-goatcounter-click="links-sheetmancer" data-goatcounter-title="Links page: Sheetmancer" aria-label="Sheetmancer: live on the App Store and Google Play. Opens its page with the store buttons.">
+        <img class="ticon" src="/assets/icon-sheetmancer.webp" width="56" height="56" alt="" loading="eager">
+        <span class="tbody">
+          <span class="tname">Sheetmancer</span>
+          <span class="pill pill-live"><span class="dot"></span>Live Now</span>
+          <span class="tdesc">Your whole RPG character, the sheet plus spells, charts and backstory, in one editable <span class="nw">Character Hub.</span></span>
+        </span>
+        <span class="tact">Get the app <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://cardnight.digirunestudios.com/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" target="_blank" rel="noopener" data-goatcounter-click="links-cardnight" data-goatcounter-title="Links page: Card Night" aria-label="Card Night: coming soon to the App Store and Google Play. Learn more on its website.">
+        <img class="ticon" src="/assets/icon-cardnight.webp" width="56" height="56" alt="" loading="lazy">
+        <span class="tbody">
+          <span class="tname">Card Night</span>
+          <span class="pill pill-soon"><span class="dot"></span>Coming Soon</span>
+          <span class="tdesc">The scorepad that knows the rules for 8 classic card and <span class="nw">domino games.</span></span>
+        </span>
+        <span class="tact">Learn more <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://stitchscroll.digirunestudios.com/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" target="_blank" rel="noopener" data-goatcounter-click="links-stitchscroll" data-goatcounter-title="Links page: Stitch Scroll" aria-label="Stitch Scroll: coming soon to the App Store and Google Play. Learn more on its website.">
+        <img class="ticon" src="/assets/icon-stitchscroll.webp" width="56" height="56" alt="" loading="lazy">
+        <span class="tbody">
+          <span class="tname">Stitch Scroll</span>
+          <span class="pill pill-soon"><span class="dot"></span>Coming Soon</span>
+          <span class="tdesc">Photograph your knitting or crochet pattern, count <span class="nw">every row.</span></span>
+        </span>
+        <span class="tact">Learn more <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://fakernight.digirunestudios.com/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" target="_blank" rel="noopener" data-goatcounter-click="links-fakernight" data-goatcounter-title="Links page: Faker Night" aria-label="Faker Night: coming soon to the App Store and Google Play. Learn more on its website.">
+        <img class="ticon" src="/assets/icon-fakernight.webp" width="56" height="56" alt="" loading="lazy">
+        <span class="tbody">
+          <span class="tname">Faker Night</span>
+          <span class="pill pill-soon"><span class="dot"></span>Coming Soon</span>
+          <span class="tdesc">Three party games. <span class="nw">One phone.</span></span>
+        </span>
+        <span class="tact">Learn more <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="tile" href="/mercs/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" data-goatcounter-click="links-mercs" data-goatcounter-title="Links page: MERCS" aria-label="MERCS: live on the App Store and Google Play. Opens its page with the store buttons.">
+        <img class="ticon" src="/assets/icon-mercs.webp" width="56" height="56" alt="" loading="lazy">
+        <span class="tbody">
+          <span class="tname">MERCS</span>
+          <span class="pill pill-live"><span class="dot"></span>Live Now</span>
+          <span class="tdesc">Official field companion for MERCS 2.5, built with <span class="nw">Fifth Angel Studios.</span></span>
+        </span>
+        <span class="tact">Get the app <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="tile" href="/twisted/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" data-goatcounter-click="links-twisted" data-goatcounter-title="Links page: Twisted" aria-label="Twisted: live on the App Store and Google Play. Opens its page with the store buttons.">
+        <img class="ticon" src="/assets/icon-twisted.webp" width="56" height="56" alt="" loading="lazy">
+        <span class="tbody">
+          <span class="tname">Twisted</span>
+          <span class="pill pill-live"><span class="dot"></span>Live Now</span>
+          <span class="tdesc">Official companion for Twisted: Steampunk Skirmish, built with <span class="nw">Demented Games.</span></span>
+        </span>
+        <span class="tact">Get the app <span aria-hidden="true">&rarr;</span></span>
+      </a>
+  </nav>
+
+  <div class="more">
+    <a href="/portfolio/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" data-goatcounter-click="links-portfolio" data-goatcounter-title="Links page: Portfolio">See the full portfolio</a>
+    <a href="/?utm_source=bio&amp;utm_medium=social&amp;utm_campaign=links" data-goatcounter-click="links-home" data-goatcounter-title="Links page: Home">DigiRuneStudios.com</a>
+  </div>
+
+  <p class="eyebrow">Follow DigiRune Studios</p>
+        <div class="social">
+          <a href="https://www.instagram.com/digirune/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
+          <a href="https://x.com/DigiRuneStudios" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg></a>
+          <a href="https://www.youtube.com/@DigiRuneStudios" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+          <a href="https://www.tiktok.com/@digirunestudios" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.3 7.3 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg></a>
+          <a href="https://www.pinterest.com/digirunestudios/" target="_blank" rel="noopener" aria-label="Pinterest"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.4 23.2c-.1-.9-.2-2.4 0-3.4l1.4-6s-.4-.7-.4-1.8c0-1.7 1-2.9 2.2-2.9 1 0 1.5.8 1.5 1.7 0 1-.7 2.6-1 4-.3 1.2.6 2.2 1.8 2.2 2.1 0 3.8-2.3 3.8-5.5 0-2.9-2.1-4.9-5-4.9-3.4 0-5.4 2.6-5.4 5.2 0 1 .4 2.1.9 2.7.1.1.1.2.1.3l-.3 1.4c-.1.2-.2.3-.4.2-1.5-.7-2.4-2.9-2.4-4.6 0-3.8 2.7-7.2 7.9-7.2 4.1 0 7.3 2.9 7.3 6.9 0 4.1-2.6 7.4-6.2 7.4-1.2 0-2.4-.6-2.8-1.4l-.7 2.9c-.3 1-1 2.3-1.5 3.1A12 12 0 1 0 12 0z"/></svg></a>
+          <a href="https://discord.com/users/1498862345106227421" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.44.86-.61 1.25a18.3 18.3 0 0 0-5.49 0 12.6 12.6 0 0 0-.62-1.25.08.08 0 0 0-.08-.04 19.7 19.7 0 0 0-4.88 1.52.07.07 0 0 0-.03.03C.53 9.05-.32 13.58.1 18.06a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-1.99a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.89.08.08 0 0 1-.01-.13l.37-.29a.07.07 0 0 1 .08-.01c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08.01l.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.64-1.87.89a.08.08 0 0 0-.04.11c.36.7.77 1.36 1.23 1.99a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.5-5.18-.84-9.67-3.55-13.66a.06.06 0 0 0-.03-.03zM8.02 15.33c-1.18 0-2.16-1.09-2.16-2.42s.96-2.42 2.16-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.15-1.09-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></svg></a>
+        </div>
+
+  <footer>
+    &copy; 2025-2026 McCullough Development, Inc. d/b/a DigiRune Studios &middot; Beaufort, South Carolina<br>
+    <a href="/#privacy">Privacy Policy</a> &middot; <a href="/#contact">Contact</a>
+  </footer>
+</main>
+<!-- GoatCounter analytics (privacy-friendly, no cookies) -->
+<script data-goatcounter="https://digirune.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
