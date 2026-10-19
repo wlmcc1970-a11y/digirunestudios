@@ -364,6 +364,35 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
 @media(max-width:520px){.demo-close{top:8px;right:8px}}
 </style>
 <style>.group-head{margin:2.4rem 0 1.2rem}.group-head h3{font-family:Cinzel,serif;font-size:1.35rem;color:var(--gold-2);margin:0 0 .3rem}.group-head p{color:var(--muted);margin:0;max-width:680px}.soon-note{color:var(--muted);font-size:.92rem;margin:0;text-transform:none;letter-spacing:0;line-height:1.5}.site-link{color:var(--gold-2);font-weight:600}</style>
+<style>
+/* ---- portfolio video (self-hosted loop, plays muted only while on screen) ---- */
+.pv-sec{padding:clamp(48px,7vw,88px) 0 0}
+.pv-sec .sec-head{margin-bottom:clamp(22px,3vw,32px)}
+.pv-frame{position:relative; max-width:920px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; background:#000; border:1px solid var(--line-2); box-shadow:var(--shadow-lift)}
+.pv-frame::before{content:""; position:absolute; left:0; right:0; top:0; height:2px; z-index:3; background:var(--grad-gold); opacity:.95; pointer-events:none}
+.pv-frame video{position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; background:#000}
+.pv-big{position:absolute; inset:0; z-index:2; display:none; align-items:flex-end; justify-content:flex-start; gap:.7rem; flex-direction:row; padding:14px; width:100%; border:0; margin:0; cursor:pointer; background:linear-gradient(180deg,rgba(15,11,7,.05),rgba(15,11,7,.45)); color:var(--ink); font:inherit}
+.pv-frame.idle .pv-big{display:flex}
+.pv-big .ring{width:64px; height:64px; flex:none; border-radius:50%; display:grid; place-items:center; background:rgba(15,11,7,.66); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border:1px solid rgba(239,200,119,.8); color:var(--gold-2); box-shadow:0 8px 24px rgba(0,0,0,.55),0 0 0 7px rgba(239,200,119,.12); transition:transform .3s var(--ease),background .25s,color .25s}
+.pv-big .ring svg{width:30px; height:30px; margin-left:5px; fill:currentColor}
+.pv-big .grp{display:flex; align-items:center; gap:.7rem}
+.pv-frame.idle #pvPause{display:none}
+.pv-big .lbl{font-weight:600; font-size:.92rem; letter-spacing:.02em; padding:.32rem .8rem; border-radius:999px; background:rgba(15,11,7,.78); border:1px solid var(--line-2); color:var(--ink)}
+.pv-big:hover .ring{transform:scale(1.07); background:rgba(224,168,78,.94); color:#20140a}
+.pv-big:focus-visible{outline-offset:-4px; border-radius:var(--radius)}
+.pv-ctrls{position:absolute; right:10px; bottom:10px; z-index:3; display:flex; gap:8px}
+.pv-btn{min-width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; gap:.4rem; padding:0 .8rem; border-radius:999px; cursor:pointer; font-family:var(--font-ui); font-weight:600; font-size:.84rem; color:var(--ink); background:rgba(15,11,7,.78); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border:1px solid rgba(239,200,119,.55); transition:background .2s,border-color .2s,color .2s}
+.pv-btn.icon{padding:0; width:44px}
+.pv-btn svg{width:20px; height:20px; fill:currentColor; flex:none}
+.pv-btn:hover{border-color:var(--gold-2); background:rgba(42,30,18,.92)}
+.pv-btn[aria-pressed="true"]{color:#20140a; background:var(--gold-2); border-color:var(--gold-2)}
+.pv-btn .on,.pv-btn[aria-pressed="true"] .off{display:none}
+.pv-btn[aria-pressed="true"] .on{display:block}
+.pv-btn .i-play,.pv-frame.paused .pv-btn .i-pause{display:none}
+.pv-frame.paused .pv-btn .i-play{display:block}
+.pv-note{max-width:920px; margin:.8rem auto 0; text-align:center; font-size:.86rem; color:var(--muted-2)}
+@media(max-width:520px){.pv-frame{border-radius:var(--radius-sm)} .pv-ctrls{right:8px; bottom:8px; gap:6px} .pv-big .ring{width:52px; height:52px} .pv-big{padding:10px} .pv-big .lbl{display:none} .pv-btn .t{display:none} .pv-btn{padding:0; width:44px}}
+</style>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -379,6 +408,27 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
   </div>
 </header>
 <main>
+<section class="sec pv-sec" id="video" aria-labelledby="pv-title">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Watch</span>
+      <h2 id="pv-title">Our Apps in Two Minutes</h2>
+      <p class="lede">A quick look at all seven of our apps: three you can download today and four coming soon.</p>
+    </div>
+    <div class="pv-frame paused" id="pvFrame">
+      <video id="pvVideo" muted loop playsinline preload="none" poster="../portfolio-video-poster.jpg?v=20261019" aria-label="Video: a two-minute tour of the seven DigiRune Studios apps" disablepictureinpicture>
+        <source src="../portfolio-video-1080.mp4?v=20261019" type="video/mp4" media="(min-width:900px)">
+        <source src="../portfolio-video-720.mp4?v=20261019" type="video/mp4">
+      </video>
+      <button type="button" class="pv-big" id="pvBig" data-goatcounter-click="video-portfolio-play" data-goatcounter-title="Portfolio video: Play" aria-label="Play the video"><span class="grp"><span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="lbl" aria-hidden="true">Play the video</span></span></button>
+      <div class="pv-ctrls">
+        <button type="button" class="pv-btn icon" id="pvPause" aria-label="Pause" data-goatcounter-click="video-portfolio-pause" data-goatcounter-title="Portfolio video: Pause or play"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></button>
+        <button type="button" class="pv-btn" id="pvSound" aria-label="Sound" aria-pressed="false" data-goatcounter-click="video-portfolio-sound" data-goatcounter-title="Portfolio video: Sound on or off"><svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4.5v-15L7 9zM16.3 9.1l1.4-1.4 2.3 2.3 2.3-2.3 1.4 1.4-2.3 2.3 2.3 2.3-1.4 1.4-2.3-2.3-2.3 2.3-1.4-1.4 2.3-2.3z"/></svg><svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4.5v-15L7 9zM15.5 8.2a5 5 0 0 1 0 7.6l-1.3-1.5a3 3 0 0 0 0-4.6zM18.1 5.2a9 9 0 0 1 0 13.6l-1.3-1.5a7 7 0 0 0 0-10.6z"/></svg><span class="t">Sound</span></button>
+      </div>
+    </div>
+    <p class="pv-note">The video starts on mute. Tap Sound to hear the music.</p>
+  </div>
+</section>
 <section class="sec" id="apps">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -581,6 +631,32 @@ footer{background:linear-gradient(180deg,rgba(17,12,8,.92),rgba(12,9,6,.98)); bo
   if(dc) dc.addEventListener('click',closeDemo);
   if(dm) dm.addEventListener('click',function(e){ if(e.target===dm) closeDemo(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && dm && dm.classList.contains('open')) closeDemo(); });
+})();
+</script>
+<script>
+/* portfolio video: plays muted only while on screen; never autoplays with reduced motion or data saver */
+(function(){
+  var f=document.getElementById('pvFrame'), v=document.getElementById('pvVideo');
+  if(!f||!v) return;
+  var big=document.getElementById('pvBig'), pb=document.getElementById('pvPause'), sb=document.getElementById('pvSound');
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sd=navigator.connection&&navigator.connection.saveData;
+  var auto=!(rm||sd);          /* may the video start itself when it scrolls into view */
+  var userPaused=false, inView=false;
+  v.muted=true;
+  if(!auto) f.classList.add('idle');
+  function sync(){ var p=v.paused; f.classList.toggle('paused',p); pb.setAttribute('aria-label',p?'Play':'Pause'); }
+  function go(){ var pr=v.play(); if(pr&&pr.catch){pr.catch(function(){ f.classList.add('idle'); sync(); });} }
+  v.addEventListener('play',function(){ f.classList.remove('idle'); sync(); });
+  v.addEventListener('pause',sync);
+  big.addEventListener('click',function(){ userPaused=false; auto=true; go(); });
+  pb.addEventListener('click',function(){ if(v.paused){ userPaused=false; auto=true; go(); } else { userPaused=true; v.pause(); } });
+  sb.addEventListener('click',function(){ v.muted=!v.muted; sb.setAttribute('aria-pressed',v.muted?'false':'true'); if(!v.muted&&v.paused){ userPaused=false; auto=true; go(); } });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ inView=e.isIntersecting&&e.intersectionRatio>=0.5;
+      if(inView){ if(auto&&!userPaused&&v.paused) go(); } else if(!v.paused){ v.pause(); } }); },{threshold:[0,0.5]}).observe(f);
+  } else { f.classList.add('idle'); }
+  sync();
 })();
 </script>
 <!-- GoatCounter analytics (privacy-friendly, no cookies) -->
