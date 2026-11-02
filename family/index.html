@@ -204,7 +204,6 @@
     <a class="chip" href="#mercs"><span class="dot" style="color:var(--green)"></span>MERCS</a>
     <a class="chip" href="#sheetmancer"><span class="dot" style="color:var(--gold)"></span>Sheetmancer</a>
     <a class="chip" href="#twisted"><span class="dot" style="color:var(--violet)"></span>Twisted</a>
-    <a class="chip" href="#digirune"><span class="dot" style="color:var(--gold-2)"></span>DigiRune Studios</a>
   </div>
 </nav>
 
@@ -277,7 +276,7 @@
       ]
     },
     {
-      "id":"digirune","name":"DigiRune Studios","color":"--gold-2",
+      "id":"digirune","hidden":true,"name":"DigiRune Studios","color":"--gold-2",
       "sub":"We build official companion apps for indie tabletop and RPG publishers.",
       "stores":[
         {"label":"digirunestudios.com","url":"https://digirunestudios.com/","type":"web"}
@@ -319,7 +318,7 @@ async function copyText(txt){
 }
 
 const root = document.getElementById('app-root');
-DATA.apps.forEach(app=>{
+DATA.apps.filter(app=>!app.hidden).forEach(app=>{
   const sec=document.createElement('section'); sec.className='app'; sec.id=app.id;
   const stores = app.stores.map(s=>`<a class="store" href="${s.url}" target="_blank" rel="noopener">${storeIcon(s.type)}<span>${esc(s.label)}</span></a>`).join('');
   const cards = app.posts.map(p=>{
