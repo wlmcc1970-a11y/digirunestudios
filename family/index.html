@@ -9,7 +9,7 @@
 <meta property="og:title" content="DigiRune Studios: Share the Word">
 <meta property="og:description" content="Every social post for MERCS, Sheetmancer, Twisted, and DigiRune Studios. Download and share your favorites.">
 <meta property="og:url" content="https://digirunestudios.com/family/">
-<meta property="og:image" content="https://digirunestudios.com/family/og-share.png">
+<meta property="og:image" content="https://digirunestudios.com/assets/og/og-home.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="DigiRune Studios: Share the Word">
@@ -17,22 +17,23 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DigiRune Studios: Share the Word">
 <meta name="twitter:description" content="Every social post for MERCS, Sheetmancer, Twisted, and DigiRune Studios. Download and share your favorites.">
-<meta name="twitter:image" content="https://digirunestudios.com/family/og-share.png">
+<meta name="twitter:image" content="https://digirunestudios.com/assets/og/og-home.png">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link href="/assets/fonts/site-fonts.css" rel="stylesheet">
 <style>
   :root{
-    --bg:#0F0B07; --bg-2:#140E09; --bg-3:#180F09;
-    --surface:#1C140D; --surface-2:#241A11; --surface-hi:#2C2015;
-    --ink:#F6EFDE; --muted:#C9BAA0; --muted-2:#9C8E77; --faint:#6F6555;
-    --gold:#E0A84E; --gold-2:#EFC877; --gold-deep:#C4832A; --gold-dim:#9A7636;
-    --grad-gold:linear-gradient(135deg,#EFC877 0%,#E0A84E 45%,#C4832A 100%);
-    --green:#4FC79A; --violet:#A99BE8;
-    --line:rgba(224,168,78,.14); --line-2:rgba(224,168,78,.28);
+    color-scheme:light;
+    --bg:#F5F3EF; --bg-2:#EFECE6; --bg-3:#E9E5DE;
+    --surface:#FFFFFF; --surface-2:#FFFFFF; --surface-hi:#F5F3EF;
+    --ink:#16130F; --muted:#5E5850; --muted-2:#6E675E; --faint:#857D72;
+    --gold:#A8701F; --gold-2:#8A5B17; --gold-deep:#8A5B17; --gold-dim:#8A5B17;
+    --grad-gold:linear-gradient(135deg,#E3B566 0%,#C9913A 55%,#A8701F 100%);
+    --green:#1F7A4D; --violet:#6B5BC4;
+    --line:rgba(22,19,15,.10); --line-2:rgba(168,112,31,.40);
     --radius:16px; --radius-sm:11px; --maxw:1160px;
-    --shadow:0 18px 50px -18px rgba(0,0,0,.7); --shadow-card:0 10px 34px -16px rgba(0,0,0,.66);
-    --font-display:'Cinzel',Georgia,'Times New Roman',serif;
+    --shadow:0 22px 44px -24px rgba(22,19,15,.35); --shadow-card:0 1px 2px rgba(22,19,15,.04),0 14px 30px -20px rgba(22,19,15,.30);
+    --font-display:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
     --font-ui:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
@@ -42,35 +43,24 @@
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     line-height:1.6; overflow-x:hidden;
   }
-  body::before{
-    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
-    background:
-      radial-gradient(1100px 620px at 50% -8%, rgba(224,168,78,.13), transparent 62%),
-      radial-gradient(900px 500px at 100% 100%, rgba(79,199,154,.05), transparent 60%),
-      linear-gradient(180deg,#0F0B07 0%, #100C08 45%, #0C0906 100%);
-  }
-  body::after{
-    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.05;
-    background:url('/bg-circuit.png') center/1100px repeat;
-    mix-blend-mode:screen;
-  }
+  body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:50; background:var(--bg)}
+
   a{color:inherit}
   img{max-width:100%}
-  ::selection{background:rgba(224,168,78,.28)}
+  ::selection{background:rgba(168,112,31,.18)}
   :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
 
   /* ---------- Header ---------- */
   header.hero{text-align:center; padding:64px 22px 40px; position:relative}
   .medallion{width:78px; height:78px; object-fit:contain; margin:0 auto 18px; display:block;
-    filter:drop-shadow(0 6px 20px rgba(224,168,78,.4))}
-  .eyebrow{font-family:var(--font-ui); letter-spacing:.42em; text-transform:uppercase; font-size:12px;
-    color:var(--gold); font-weight:600; margin:0 0 14px; padding-left:.42em}
+    }
+  .eyebrow{font-family:var(--font-ui); letter-spacing:.2em; text-transform:uppercase; font-size:12px;
+    color:var(--gold-2); font-weight:600; margin:0 0 14px; padding-left:.2em}
   h1{font-family:var(--font-display); font-weight:800; font-size:clamp(34px,6.2vw,56px); line-height:1.02;
-    margin:0 0 6px; letter-spacing:.01em; background:linear-gradient(180deg,#FBEFCF 0%,#EFC877 52%,#C4832A 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent; background-size:200% auto}
+    margin:0 0 6px; letter-spacing:.01em; color:var(--ink); letter-spacing:-.02em}
   @media(prefers-reduced-motion:no-preference){
-    h1{animation:sheen 7s ease-in-out infinite}
+    
     @keyframes sheen{0%,100%{background-position:0% center} 50%{background-position:120% center}}
   }
   .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:20px auto 24px; max-width:340px; color:var(--gold-dim)}
@@ -87,13 +77,13 @@
   .note p{margin:0 0 13px; color:var(--muted); font-size:clamp(15px,2.3vw,16.5px); line-height:1.66}
   .note p:last-of-type{margin-bottom:0}
   .note strong{color:var(--ink); font-weight:600}
-  .note .sign{font-family:var(--font-display); font-style:italic; color:var(--gold-2); font-weight:600; font-size:18px; margin-top:16px}
+  .note .sign{font-family:var(--font-display); font-style:normal; color:var(--gold-2); font-weight:600; font-size:18px; margin-top:16px}
   .note a{color:var(--gold-2); font-weight:600; text-decoration:none; border-bottom:1px solid var(--line-2)}
   .note a:hover{color:var(--gold); border-bottom-color:var(--gold)}
 
   /* ---------- Sticky jump nav ---------- */
-  nav.jump{position:sticky; top:0; z-index:40; padding:13px 0; margin-top:40px;
-    background:rgba(15,11,7,.78); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
+  nav.jump{position:sticky; top:env(safe-area-inset-top,0px); z-index:40; padding:13px 0; margin-top:40px;
+    background:rgba(245,243,239,.92); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
     border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
   nav.jump .wrap{display:flex; gap:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
   nav.jump .wrap::-webkit-scrollbar{display:none}
@@ -101,7 +91,7 @@
     border:1px solid var(--line); background:var(--surface); padding:10px 17px; border-radius:999px;
     transition:border-color .18s, color .18s, background .18s; display:inline-flex; align-items:center}
   .chip:hover,.chip:focus-visible{border-color:var(--line-2); color:var(--ink); background:var(--surface-2)}
-  .chip .dot{width:8px; height:8px; border-radius:50%; margin-right:9px; box-shadow:0 0 8px currentColor}
+  .chip .dot{width:8px; height:8px; border-radius:50%; margin-right:9px; background:currentColor}
 
   /* ---------- App sections ---------- */
   section.app{padding:52px 0 10px; scroll-margin-top:74px}
@@ -126,17 +116,17 @@
     border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-card); display:flex; flex-direction:column;
     transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease}
   .card:hover{transform:translateY(-4px); border-color:var(--line-2); box-shadow:var(--shadow)}
-  .thumb{position:relative; cursor:zoom-in; background:#0A0705; overflow:hidden; border-bottom:1px solid var(--line)}
+  .thumb{position:relative; cursor:zoom-in; background:#EDE9E2; overflow:hidden; border-bottom:1px solid var(--line)}
   .thumb img{width:100%; height:auto; display:block; transition:transform .35s ease}
   .card:hover .thumb img{transform:scale(1.035)}
-  .thumb .expand{position:absolute; right:11px; bottom:11px; background:rgba(10,7,5,.72); color:var(--ink);
+  .thumb .expand{position:absolute; right:11px; bottom:11px; background:rgba(22,19,15,.78); color:#fff;
     border:1px solid var(--line-2); font-size:11px; font-weight:600; letter-spacing:.02em; padding:6px 10px; border-radius:8px;
     pointer-events:none; backdrop-filter:blur(4px); opacity:0; transform:translateY(4px); transition:.2s}
   .thumb:hover .expand,.card:hover .expand{opacity:1; transform:translateY(0)}
-  .fmt-badge{position:absolute; left:11px; top:11px; z-index:2; background:rgba(10,7,5,.74); color:var(--gold-2);
+  .fmt-badge{position:absolute; left:11px; top:11px; z-index:2; background:rgba(22,19,15,.78); color:#F3DDB0;
     border:1px solid var(--line-2); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     padding:4px 9px; border-radius:7px; backdrop-filter:blur(4px); pointer-events:none}
-  .thumb.wide{background:#0A0705}
+  .thumb.wide{background:#EDE9E2}
   .card-body{padding:18px 18px 18px; display:flex; flex-direction:column; gap:11px; flex:1}
   .headline{font-family:var(--font-display); font-weight:700; font-size:16.5px; line-height:1.3; color:var(--ink)}
   .caption{color:var(--muted); font-size:13.5px; line-height:1.58}
@@ -149,8 +139,8 @@
   .btn:hover,.btn:focus-visible{border-color:var(--line-2); color:var(--ink)}
   .btn:active{transform:scale(.97)}
   .btn.wide-btn{flex-basis:100%}
-  .btn.primary{flex-basis:100%; background:var(--grad-gold); color:#241305; border:none; font-weight:700; letter-spacing:.01em}
-  .btn.primary:hover{filter:brightness(1.06); color:#241305}
+  .btn.primary{flex-basis:100%; background:var(--ink); color:#fff; border:none; font-weight:700; letter-spacing:.01em}
+  .btn.primary:hover{filter:none; background:#2A251E; color:#fff}
   .btn svg{width:15px; height:15px}
 
   /* ---------- Lightbox ---------- */
@@ -160,13 +150,13 @@
   @keyframes fadein{from{opacity:0}to{opacity:1}}
   .lb img{max-width:min(92vw,700px); max-height:76vh; border-radius:12px; box-shadow:0 30px 80px rgba(0,0,0,.7); border:1px solid var(--line-2)}
   .lb .lb-actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
-  .lb .close{position:fixed; top:16px; right:20px; font-size:30px; color:var(--muted); background:none; border:none; cursor:pointer; line-height:1; padding:8px}
-  .lb .close:hover{color:var(--ink)}
+  .lb .close{position:fixed; top:16px; right:20px; font-size:30px; color:#EFEAE1; background:none; border:none; cursor:pointer; line-height:1; padding:8px}
+  .lb .close:hover{color:#fff}
 
   /* ---------- Toast ---------- */
   #toast{position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(22px); opacity:0; pointer-events:none;
-    background:var(--grad-gold); color:#241305; font-weight:700; font-size:14px; padding:13px 22px; border-radius:999px;
-    box-shadow:0 10px 30px rgba(0,0,0,.5); transition:opacity .25s, transform .25s; z-index:200}
+    background:var(--ink); color:#fff; font-weight:700; font-size:14px; padding:13px 22px; border-radius:999px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25); transition:opacity .25s, transform .25s; z-index:200}
   #toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
 
   /* ---------- Reveal on scroll ---------- */
@@ -176,10 +166,9 @@
 
   /* ---------- Footer ---------- */
   footer{text-align:center; padding:60px 22px 68px; margin-top:52px; border-top:1px solid var(--line);
-    background:radial-gradient(700px 300px at 50% 120%, rgba(224,168,78,.06), transparent 70%)}
-  footer .wordmark{font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:.04em;
-    background:var(--grad-gold); -webkit-background-clip:text; background-clip:text; color:transparent}
-  footer .tag{color:var(--muted-2); font-size:13.5px; font-style:italic; margin:6px 0 18px}
+    background:var(--bg-2)}
+  footer .wordmark{font-family:'Cinzel',Georgia,serif; font-weight:700; font-size:20px; letter-spacing:.04em; color:var(--ink)}
+  footer .tag{color:var(--gold-2); font-size:13.5px; font-weight:600; margin:6px 0 18px}
   footer .social{display:flex; gap:12px; justify-content:center; margin-bottom:20px}
   footer .social a{width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center;
     border:1px solid var(--line); border-radius:50%; color:var(--muted); background:var(--surface); transition:.18s}
@@ -195,7 +184,7 @@
 
 <header class="hero">
   <div class="wrap">
-    <img class="medallion" src="/medallion.png" alt="DigiRune Studios medallion">
+    <img class="medallion" src="/assets/medallion-560.webp" alt="DigiRune Studios medallion">
     <p class="eyebrow">DigiRune Studios</p>
     <h1>Share the Word</h1>
     <div class="ornament"><span class="ln"></span><span class="dia">◆</span><span class="ln"></span></div>
@@ -231,7 +220,7 @@
 
 <footer>
   <div class="wordmark">DigiRune Studios</div>
-  <div class="tag">Your World in Their Pocket</div>
+  <div class="tag">Small studio. Seriously good apps.</div>
   <div class="social">
     <a href="https://www.instagram.com/digirune/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
     <a href="https://x.com/DigiRuneStudios" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.5h3.3l-7.2 8.2 8.5 11.3h-6.7l-5.2-6.9-6 6.9H1.3l7.7-8.8L.9 2.5h6.9l4.7 6.3 5.4-6.3zm-1.2 17.8h1.8L7.1 4.3H5.2l12.5 16z"/></svg></a>
