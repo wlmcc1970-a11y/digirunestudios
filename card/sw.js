@@ -1,4 +1,4 @@
-const CACHE = 'digirune-card-v3';
+const CACHE = 'digirune-card-v4';
 const SHELL = ['/card/', '/card/index.html', '/card/manifest.json', '/card/icon-192.png', '/card/icon-512.png', '/card/will-mccullough.vcf'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
