@@ -20,7 +20,9 @@
         :android?'https://play.google.com/store/apps/details?id=com.digirunestudios.twisted&referrer='+encodeURIComponent('utm_source='+tag+'&utm_medium=social')
         :'https://digirunestudios.com/twisted/'.replace('{src}',encodeURIComponent(src||'social'));
   window.__go=url;
-  location.replace(url);
+  // TikTok on iPhone blocks App Store links in its own browser (tested 2026-11-14): show a way out instead of a blank page.
+  window.__tt=ios&&url.indexOf('apps.apple.com')>-1&&/musical_ly|BytedanceWebview|TikTok|trill/i.test(ua);
+  if(!window.__tt) location.replace(url);
 })();
 </script>
 <style>
@@ -35,9 +37,16 @@
     <p>Opening Twisted Companion App&hellip;</p>
     <div id="fb"><a id="btn" href="https://digirunestudios.com/twisted/">Tap to continue</a></div>
   </div>
+  <div id="tt" style="display:none">
+    <p><b>TikTok can&rsquo;t open the App Store from here.</b></p>
+    <p>Tap <b>&bull;&bull;&bull;</b> at the top right, then <b>Open in browser</b>.</p>
+    <div style="margin:0 0 18px"><a id="saf" href="#">Open in Safari</a></div>
+    <p style="font-size:14px;opacity:.8">Or open the App Store and search <b>Twisted Companion App</b>.</p>
+  </div>
 <script>
   document.getElementById('btn').href=window.__go||document.getElementById('btn').href;
-  setTimeout(function(){document.getElementById('fb').style.visibility='visible';},1200);
+  if(window.__tt){document.querySelector('body>div').style.display='none';document.getElementById('tt').style.display='block';document.getElementById('saf').href='x-safari-'+location.href;}
+  else setTimeout(function(){document.getElementById('fb').style.visibility='visible';},1200);
 </script>
 </body>
 </html>
