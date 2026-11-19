@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Night</title>
+<!-- Smart store link for social posts and paid ads (Will 2026-11-14: every social link goes straight to the point of purchase).
+     iPhone -> the iPhone list on the app site, Android -> Google Play, anything else -> the app page.
+     Use: https://digirunestudios.com/go/cardnight.html?utm_source=<platform>-<week-row>  (the tag reaches the stores). Kept out of search. -->
+<meta name="robots" content="noindex, nofollow">
+<script>
+(function(){
+  var m=/[?&]utm_source=([^&#]+)/.exec(location.search);
+  var src=m?decodeURIComponent(m[1]).toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,30):'';
+  var tag='cn-'+(src||'social');
+  var ua=navigator.userAgent||'';
+  var ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+  var android=/Android/.test(ua);
+  var url=ios?'https://cardnight.digirunestudios.com/?utm_source={src}#iplist'.replace('{tag}',tag).replace('{src}',encodeURIComponent(src||'social'))
+        :android?'https://play.google.com/store/apps/details?id=com.digirunestudios.cardnight&referrer='+encodeURIComponent('utm_source='+tag+'&utm_medium=social')
+        :'https://cardnight.digirunestudios.com/?utm_source={src}'.replace('{src}',encodeURIComponent(src||'social'));
+  window.__go=url;
+  // TikTok on iPhone blocks App Store links in its own browser (tested 2026-11-14): show a way out instead of a blank page.
+  window.__tt=ios&&url.indexOf('apps.apple.com')>-1&&/musical_ly|BytedanceWebview|TikTok|trill/i.test(ua);
+  if(!window.__tt) location.replace(url);
+})();
+</script>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0E0A08;color:#D9CBB0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;text-align:center;padding:24px}
+  p{margin:0 0 18px;font-size:16px}
+  a{display:inline-block;background:#D6A852;color:#1a1008;font-weight:700;text-decoration:none;border-radius:12px;padding:14px 26px;font-size:17px}
+  #fb{visibility:hidden}
+</style>
+</head>
+<body>
+  <div>
+    <p>Opening Card Night&hellip;</p>
+    <div id="fb"><a id="btn" href="https://cardnight.digirunestudios.com/">Tap to continue</a></div>
+  </div>
+  <div id="tt" style="display:none">
+    <p><b>TikTok can&rsquo;t open the App Store from here.</b></p>
+    <p>Tap <b>&bull;&bull;&bull;</b> at the top right, then <b>Open in browser</b>.</p>
+    <div style="margin:0 0 18px"><a id="saf" href="#">Open in Safari</a></div>
+    <p style="font-size:14px;opacity:.8">Or open the App Store and search <b>Card Night</b>.</p>
+  </div>
+<script>
+  document.getElementById('btn').href=window.__go||document.getElementById('btn').href;
+  if(window.__tt){document.querySelector('body>div').style.display='none';document.getElementById('tt').style.display='block';document.getElementById('saf').href='x-safari-'+location.href;}
+  else setTimeout(function(){document.getElementById('fb').style.visibility='visible';},1200);
+</script>
+</body>
+</html>
