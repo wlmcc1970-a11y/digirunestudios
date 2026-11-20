@@ -7,7 +7,7 @@
 - [Home](https://digirunestudios.com/): who we are and our featured apps
 - [Our Apps](https://digirunestudios.com/our-apps/): every app we publish, with store links
 - [For Publishers](https://digirunestudios.com/for-publishers/): how licensed companion apps work for tabletop game publishers, with a plain FAQ
-- [For App Builders](https://digirunestudios.com/for-app-builders/): the Store Launch Kit, a step-by-step guide and checklist for publishing an app on the Apple App Store and Google Play, including apps built with AI tools (coming soon; join the list)
+- [For App Builders](https://digirunestudios.com/for-app-builders/): the Store Launch Kit, a step-by-step guide and checklist for publishing an app on the Apple App Store and Google Play, including apps built with AI tools (available now on Gumroad: $29 founding price, later $49, with 12 months of updates)
 - [About](https://digirunestudios.com/about/): the studio and its founder
 - [Privacy Policy](https://digirunestudios.com/privacy/)
 
