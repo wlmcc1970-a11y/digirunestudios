@@ -22,6 +22,10 @@
 
 - [Google Play's 12 testers for 14 days rule, explained](https://digirunestudios.com/for-app-builders/guides/google-play-12-testers-14-days/): who the closed testing rule applies to and how to apply for production access
 - [Apple guideline 4.3 spam rejection: what it means and how to fix it](https://digirunestudios.com/for-app-builders/guides/apple-guideline-4-3-spam-rejection/): why Apple flags apps as spam and what to change before resubmitting
+- [Google Play's target API level requirement](https://digirunestudios.com/for-app-builders/guides/google-play-target-api-level-requirement/): the current Android version Google Play requires and what happens to apps that fall behind
+- [App Store privacy labels explained](https://digirunestudios.com/for-app-builders/guides/app-store-privacy-label-explained/): how to answer Apple's App Privacy questions, including SDKs and tracking
+- [Google Play Data safety form explained](https://digirunestudios.com/for-app-builders/guides/google-play-data-safety-form-explained/): what counts as collecting and sharing, SDKs, and accurate declarations
+- [Put a web app on Google Play](https://digirunestudios.com/for-app-builders/guides/put-a-web-app-on-google-play/): Trusted Web Activities, Digital Asset Links and the browser-bar trap
 
 ## Contact
 
