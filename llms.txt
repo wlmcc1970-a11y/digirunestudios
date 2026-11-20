@@ -18,6 +18,11 @@
 - What it does not do: it never guarantees approval. Apple and Google make every decision.
 - Built from the process DigiRune Studios uses to publish its own apps and licensed companion apps.
 
+## Guides
+
+- [Google Play's 12 testers for 14 days rule, explained](https://digirunestudios.com/for-app-builders/guides/google-play-12-testers-14-days/): who the closed testing rule applies to and how to apply for production access
+- [Apple guideline 4.3 spam rejection: what it means and how to fix it](https://digirunestudios.com/for-app-builders/guides/apple-guideline-4-3-spam-rejection/): why Apple flags apps as spam and what to change before resubmitting
+
 ## Contact
 
 - will@digirunestudios.com
