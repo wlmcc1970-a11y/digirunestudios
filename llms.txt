@@ -1,0 +1,23 @@
+# DigiRune Studios
+
+> DigiRune Studios is a veteran-owned app studio in Beaufort, South Carolina (McCullough Development, Inc.). It builds officially licensed companion apps for tabletop game publishers, its own apps for Android and iPhone, and the Store Launch Kit, a guide for getting apps through App Store and Google Play review.
+
+## Main pages
+
+- [Home](https://digirunestudios.com/): who we are and our featured apps
+- [Our Apps](https://digirunestudios.com/our-apps/): every app we publish, with store links
+- [For Publishers](https://digirunestudios.com/for-publishers/): how licensed companion apps work for tabletop game publishers, with a plain FAQ
+- [For App Builders](https://digirunestudios.com/for-app-builders/): the Store Launch Kit, a step-by-step guide and checklist for publishing an app on the Apple App Store and Google Play, including apps built with AI tools (coming soon; join the list)
+- [About](https://digirunestudios.com/about/): the studio and its founder
+- [Privacy Policy](https://digirunestudios.com/privacy/)
+
+## Store Launch Kit facts
+
+- What it is: a plain-English guide, a tick-box checklist and copy-and-paste practice-review prompts for Apple and Google review.
+- Who it is for: first-time publishers and anyone rejected by a store, including builders of apps made with AI tools.
+- What it does not do: it never guarantees approval. Apple and Google make every decision.
+- Built from the process DigiRune Studios uses to publish its own apps and licensed companion apps.
+
+## Contact
+
+- will@digirunestudios.com
