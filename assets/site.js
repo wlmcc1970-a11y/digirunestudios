@@ -163,9 +163,9 @@
     });
   });
 
-  // Count the first play of the portfolio video.
+  // Count the first play of each counted video (portfolio, Six Weeks film).
   d.querySelectorAll('video[data-count-video]').forEach(function (vd) {
-    vd.addEventListener('play', function once() { vd.removeEventListener('play', once); count('video-portfolio-play', 'Our Portfolio video: play'); });
+    vd.addEventListener('play', function once() { vd.removeEventListener('play', once); if (vd.getAttribute('data-count-video') === 'sixweeks') count('video-sixweeks-play', 'Six Weeks film: play'); else count('video-portfolio-play', 'Our Portfolio video: play'); });
   });
 
   // Share button on the thank-you message (For App Builders).
